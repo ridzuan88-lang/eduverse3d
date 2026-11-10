@@ -40,6 +40,10 @@ func _ready() -> void:
 func _vs() -> Vector2:
     return get_viewport_rect().size
 
+func set_riding(b: bool) -> void:
+    _b.act.text = "TURUN" if b else "AMBIL"
+    _b.jump.text = "BREK" if b else "LOMPAT"
+
 func _mk(id: String, text: String, sz: Vector2) -> void:
     var b := UI.btn(text, sz, 22)
     b.mouse_filter = Control.MOUSE_FILTER_IGNORE
