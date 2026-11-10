@@ -88,14 +88,14 @@ wss.on('connection', (ws) => {
       try { u = await admin.auth().verifyIdToken(m.token); } catch { ws.send(JSON.stringify({ t: 'err', m: 'auth' })); return ws.close(); }
       room = assignRoom(m.room);
       if (!room) { ws.send(JSON.stringify({ t: 'err', m: 'full' })); return ws.close(); }
-      me = { id: crypto.randomBytes(4).toString('hex'), uid: u.uid, n: cleanName(m.name) || 'Pemain', av: avatar(m.avatar), x: 0, y: 2, z: 10, r: 0, a: 0, m: '', mt: 0 };
+      me = { id: crypto.randomBytes(4).toString('hex'), uid: u.uid, n: cleanName(m.name) || 'Pemain', av: avatar(m.avatar), x: 0, y: 2, z: 10, r: 0, a: 0, v: 0, m: '', mt: 0 };
       for (const [id, p] of rooms.get(room)) if (p.uid === u.uid) { p.ws.close(); rooms.get(room).delete(id); }
       me.ws = ws;
       rooms.get(room).set(me.id, me);
       ws.send(JSON.stringify({ t: 'w', id: me.id }));
       return;
     }
-    if (m.t === 's') { me.x = num(m.x, 600); me.y = num(m.y, 100); me.z = num(m.z, 600); me.r = num(m.r, 7); me.a = int(m.a, 0, 3) ? m.a : 0; }
+    if (m.t === 's') { me.x = num(m.x, 600); me.y = num(m.y, 100); me.z = num(m.z, 600); me.r = num(m.r, 7); me.a = int(m.a, 0, 3) ? m.a : 0; me.v = int(m.v, 0, 3) ? m.v : 0; }
     else if (m.t === 'e' && int(m.i, 0, PRESETS.length - 1)) { me.m = PRESETS[m.i]; me.mt = Date.now(); }
   });
   ws.on('close', () => { if (me && room && rooms.has(room)) { rooms.get(room).delete(me.id); if (rooms.get(room).size === 0 && room.startsWith('p-')) rooms.delete(room); } });
@@ -105,7 +105,7 @@ setInterval(() => {
   const now = Date.now();
   for (const [, players] of rooms) {
     if (!players.size) continue;
-    const list = [...players.values()].map((p) => ({ id: p.id, n: p.n, av: p.av, x: p.x, y: p.y, z: p.z, r: p.r, a: p.a, m: now - p.mt < 3000 ? p.m : '' }));
+    const list = [...players.values()].map((p) => ({ id: p.id, n: p.n, av: p.av, x: p.x, y: p.y, z: p.z, r: p.r, a: p.a, v: p.v, m: now - p.mt < 3000 ? p.m : '' }));
     const msg = JSON.stringify({ t: 'p', list });
     for (const p of players.values()) if (p.ws.readyState === 1) p.ws.send(msg);
   }
