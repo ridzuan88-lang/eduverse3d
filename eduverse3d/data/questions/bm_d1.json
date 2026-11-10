@@ -1,0 +1,110 @@
+[
+ {
+  "id": "bm-1-000",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Lawan bagi 'besar' ialah?",
+  "options": [
+   "malam",
+   "lapar",
+   "nipis",
+   "kecil"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: kecil.",
+  "xp": 10
+ },
+ {
+  "id": "bm-1-001",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Lawan bagi 'panas' ialah?",
+  "options": [
+   "hodoh",
+   "nipis",
+   "sejuk",
+   "lapar"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: sejuk.",
+  "xp": 10
+ },
+ {
+  "id": "bm-1-002",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Lawan bagi 'tinggi' ialah?",
+  "options": [
+   "sejuk",
+   "hodoh",
+   "rendah",
+   "malam"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: rendah.",
+  "xp": 10
+ },
+ {
+  "id": "bm-1-003",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Lawan bagi 'siang' ialah?",
+  "options": [
+   "sejuk",
+   "malam",
+   "perlahan",
+   "hodoh"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: malam.",
+  "xp": 10
+ },
+ {
+  "id": "bm-1-004",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Lawan bagi 'cantik' ialah?",
+  "options": [
+   "perlahan",
+   "sejuk",
+   "nipis",
+   "hodoh"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: hodoh.",
+  "xp": 10
+ },
+ {
+  "id": "bm-1-005",
+  "subject": "bm",
+  "year": 1,
+  "topic": "Antonim",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Lawan bagi 'laju' ialah?",
+  "options": [
+   "nipis",
+   "kecil",
+   "perlahan",
+   "lapar"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: perlahan.",
+  "xp": 10
+ }
+]

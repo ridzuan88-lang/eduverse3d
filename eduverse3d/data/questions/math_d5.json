@@ -1,0 +1,434 @@
+[
+ {
+  "id": "math-5-000",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 170 ialah?",
+  "options": [
+   "17",
+   "12",
+   "19",
+   "27"
+  ],
+  "answer": 0,
+  "explanation": "10% = bahagi 10: jawapan ialah 17.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-001",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 80 ialah?",
+  "options": [
+   "6",
+   "18",
+   "11",
+   "8"
+  ],
+  "answer": 3,
+  "explanation": "10% = bahagi 10: jawapan ialah 8.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-002",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 30 ialah?",
+  "options": [
+   "3",
+   "4",
+   "0",
+   "6"
+  ],
+  "answer": 0,
+  "explanation": "10% = bahagi 10: jawapan ialah 3.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-003",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 200 ialah?",
+  "options": [
+   "20",
+   "17",
+   "21",
+   "19"
+  ],
+  "answer": 0,
+  "explanation": "10% = bahagi 10: jawapan ialah 20.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-004",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 180 ialah?",
+  "options": [
+   "23",
+   "21",
+   "18",
+   "17"
+  ],
+  "answer": 2,
+  "explanation": "10% = bahagi 10: jawapan ialah 18.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-005",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 40 ialah?",
+  "options": [
+   "3",
+   "14",
+   "4",
+   "9"
+  ],
+  "answer": 2,
+  "explanation": "10% = bahagi 10: jawapan ialah 4.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-006",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 150 ialah?",
+  "options": [
+   "15",
+   "25",
+   "20",
+   "16"
+  ],
+  "answer": 0,
+  "explanation": "10% = bahagi 10: jawapan ialah 15.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-007",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "10% daripada 90 ialah?",
+  "options": [
+   "12",
+   "10",
+   "9",
+   "7"
+  ],
+  "answer": 2,
+  "explanation": "10% = bahagi 10: jawapan ialah 9.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-008",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "2/10 + 3/10 = ?",
+  "options": [
+   "5/10",
+   "5/11",
+   "6/10",
+   "4/10"
+  ],
+  "answer": 0,
+  "explanation": "Tambah pengangka: jawapan ialah 5/10.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-009",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "1/11 + 3/11 = ?",
+  "options": [
+   "4/11",
+   "3/11",
+   "4/12",
+   "5/11"
+  ],
+  "answer": 0,
+  "explanation": "Tambah pengangka: jawapan ialah 4/11.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-010",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "1/5 + 3/5 = ?",
+  "options": [
+   "4/5",
+   "4/6",
+   "3/5",
+   "5/5"
+  ],
+  "answer": 0,
+  "explanation": "Tambah pengangka: jawapan ialah 4/5.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-011",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "1/5 + 2/5 = ?",
+  "options": [
+   "3/6",
+   "4/5",
+   "2/5",
+   "3/5"
+  ],
+  "answer": 3,
+  "explanation": "Tambah pengangka: jawapan ialah 3/5.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-012",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "1/9 + 2/9 = ?",
+  "options": [
+   "2/9",
+   "3/10",
+   "3/9",
+   "4/9"
+  ],
+  "answer": 2,
+  "explanation": "Tambah pengangka: jawapan ialah 3/9.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-013",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "2/10 + 2/10 = ?",
+  "options": [
+   "5/10",
+   "4/10",
+   "3/10",
+   "4/11"
+  ],
+  "answer": 1,
+  "explanation": "Tambah pengangka: jawapan ialah 4/10.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-014",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "3/6 + 2/6 = ?",
+  "options": [
+   "6/6",
+   "5/6",
+   "4/6",
+   "5/7"
+  ],
+  "answer": 1,
+  "explanation": "Tambah pengangka: jawapan ialah 5/6.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-015",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "4/6 + 1/6 = ?",
+  "options": [
+   "5/7",
+   "4/6",
+   "6/6",
+   "5/6"
+  ],
+  "answer": 3,
+  "explanation": "Tambah pengangka: jawapan ialah 5/6.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-016",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 6 cm dan lebar 5 cm (cm persegi)?",
+  "options": [
+   "25",
+   "30",
+   "40",
+   "35"
+  ],
+  "answer": 1,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 30.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-017",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 10 cm dan lebar 6 cm (cm persegi)?",
+  "options": [
+   "58",
+   "65",
+   "70",
+   "60"
+  ],
+  "answer": 3,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 60.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-018",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 10 cm dan lebar 12 cm (cm persegi)?",
+  "options": [
+   "122",
+   "120",
+   "121",
+   "125"
+  ],
+  "answer": 1,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 120.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-019",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 5 cm dan lebar 8 cm (cm persegi)?",
+  "options": [
+   "35",
+   "40",
+   "42",
+   "37"
+  ],
+  "answer": 1,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 40.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-020",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 3 cm dan lebar 6 cm (cm persegi)?",
+  "options": [
+   "21",
+   "16",
+   "20",
+   "18"
+  ],
+  "answer": 3,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 18.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-021",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 8 cm dan lebar 10 cm (cm persegi)?",
+  "options": [
+   "80",
+   "90",
+   "81",
+   "79"
+  ],
+  "answer": 0,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 80.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-022",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 7 cm dan lebar 11 cm (cm persegi)?",
+  "options": [
+   "77",
+   "78",
+   "72",
+   "79"
+  ],
+  "answer": 0,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 77.",
+  "xp": 10
+ },
+ {
+  "id": "math-5-023",
+  "subject": "math",
+  "year": 5,
+  "topic": "Peratus, pecahan, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi empat tepat panjang 11 cm dan lebar 7 cm (cm persegi)?",
+  "options": [
+   "79",
+   "76",
+   "77",
+   "87"
+  ],
+  "answer": 2,
+  "explanation": "Luas = panjang x lebar: jawapan ialah 77.",
+  "xp": 10
+ }
+]

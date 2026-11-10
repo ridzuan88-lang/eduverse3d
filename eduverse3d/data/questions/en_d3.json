@@ -1,0 +1,110 @@
+[
+ {
+  "id": "en-3-000",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the plural of 'child'?",
+  "options": [
+   "feet",
+   "men",
+   "mice",
+   "children"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: children.",
+  "xp": 10
+ },
+ {
+  "id": "en-3-001",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the plural of 'mouse'?",
+  "options": [
+   "children",
+   "feet",
+   "mice",
+   "leaves"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: mice.",
+  "xp": 10
+ },
+ {
+  "id": "en-3-002",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the plural of 'foot'?",
+  "options": [
+   "mice",
+   "teeth",
+   "feet",
+   "children"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: feet.",
+  "xp": 10
+ },
+ {
+  "id": "en-3-003",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the plural of 'tooth'?",
+  "options": [
+   "mice",
+   "children",
+   "feet",
+   "teeth"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: teeth.",
+  "xp": 10
+ },
+ {
+  "id": "en-3-004",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the plural of 'man'?",
+  "options": [
+   "feet",
+   "men",
+   "teeth",
+   "geese"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: men.",
+  "xp": 10
+ },
+ {
+  "id": "en-3-005",
+  "subject": "en",
+  "year": 3,
+  "topic": "Plurals",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the plural of 'woman'?",
+  "options": [
+   "women",
+   "teeth",
+   "geese",
+   "children"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: women.",
+  "xp": 10
+ }
+]

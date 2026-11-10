@@ -1,0 +1,110 @@
+[
+ {
+  "id": "bm-6-000",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Bagai kucing dengan anjing' ialah?",
+  "options": [
+   "saling bergantung",
+   "selalu bergaduh",
+   "orang tidak bertanya tidak akan tahu",
+   "kerajinan membawa kepada kepandaian"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: selalu bergaduh.",
+  "xp": 10
+ },
+ {
+  "id": "bm-6-001",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Berat sama dipikul, ringan sama dijinjing' ialah?",
+  "options": [
+   "sentiasa ada jalan jika berusaha",
+   "bekerjasama dalam susah dan senang",
+   "kerajinan membawa kepada kepandaian",
+   "perpaduan membawa kekuatan"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: bekerjasama dalam susah dan senang.",
+  "xp": 10
+ },
+ {
+  "id": "bm-6-002",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Hendak seribu daya' ialah?",
+  "options": [
+   "perkara biasa dilakukan menjadi mudah",
+   "orang tidak bertanya tidak akan tahu",
+   "bekerjasama dalam susah dan senang",
+   "sentiasa ada jalan jika berusaha"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: sentiasa ada jalan jika berusaha.",
+  "xp": 10
+ },
+ {
+  "id": "bm-6-003",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Bersatu teguh, bercerai roboh' ialah?",
+  "options": [
+   "saling bergantung",
+   "sentiasa ada jalan jika berusaha",
+   "perkara biasa dilakukan menjadi mudah",
+   "perpaduan membawa kekuatan"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: perpaduan membawa kekuatan.",
+  "xp": 10
+ },
+ {
+  "id": "bm-6-004",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Malu bertanya sesat jalan' ialah?",
+  "options": [
+   "saling bergantung",
+   "kerajinan membawa kepada kepandaian",
+   "sentiasa ada jalan jika berusaha",
+   "orang tidak bertanya tidak akan tahu"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: orang tidak bertanya tidak akan tahu.",
+  "xp": 10
+ },
+ {
+  "id": "bm-6-005",
+  "subject": "bm",
+  "year": 6,
+  "topic": "Peribahasa",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Maksud peribahasa 'Rajin pangkal pandai' ialah?",
+  "options": [
+   "perpaduan membawa kekuatan",
+   "sentiasa ada jalan jika berusaha",
+   "kerajinan membawa kepada kepandaian",
+   "selalu bergaduh"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: kerajinan membawa kepada kepandaian.",
+  "xp": 10
+ }
+]

@@ -1,0 +1,434 @@
+[
+ {
+  "id": "math-6-000",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 4:6",
+  "options": [
+   "3:3",
+   "2:3",
+   "3:2",
+   "2:4"
+  ],
+  "answer": 1,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 2:3.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-001",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 10:6",
+  "options": [
+   "5:3",
+   "6:3",
+   "5:4",
+   "3:5"
+  ],
+  "answer": 0,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 5:3.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-002",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 25:15",
+  "options": [
+   "5:4",
+   "6:3",
+   "5:3",
+   "3:5"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 5:3.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-003",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 6:3",
+  "options": [
+   "2:1",
+   "2:2",
+   "1:2",
+   "3:1"
+  ],
+  "answer": 0,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 2:1.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-004",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 12:15",
+  "options": [
+   "5:5",
+   "4:6",
+   "4:5",
+   "5:4"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 4:5.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-005",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 12:4",
+  "options": [
+   "1:3",
+   "4:1",
+   "3:1",
+   "3:2"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 3:1.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-006",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 6:10",
+  "options": [
+   "3:6",
+   "3:5",
+   "5:3",
+   "4:5"
+  ],
+  "answer": 1,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 3:5.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-007",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Permudahkan nisbah 10:25",
+  "options": [
+   "2:5",
+   "3:5",
+   "2:6",
+   "5:2"
+  ],
+  "answer": 0,
+  "explanation": "Bahagi dengan faktor sepunya: jawapan ialah 2:5.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-008",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 24, 9 dan 27 (bundarkan ke nombor bulat)?",
+  "options": [
+   "18",
+   "15",
+   "20",
+   "21"
+  ],
+  "answer": 2,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 20.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-009",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 24, 9 dan 6 (bundarkan ke nombor bulat)?",
+  "options": [
+   "15",
+   "13",
+   "8",
+   "23"
+  ],
+  "answer": 1,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 13.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-010",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 24, 9 dan 9 (bundarkan ke nombor bulat)?",
+  "options": [
+   "15",
+   "16",
+   "13",
+   "14"
+  ],
+  "answer": 3,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 14.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-011",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 12, 27 dan 12 (bundarkan ke nombor bulat)?",
+  "options": [
+   "15",
+   "19",
+   "16",
+   "17"
+  ],
+  "answer": 3,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 17.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-012",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 6, 6 dan 6 (bundarkan ke nombor bulat)?",
+  "options": [
+   "16",
+   "11",
+   "7",
+   "6"
+  ],
+  "answer": 3,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 6.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-013",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 21, 6 dan 15 (bundarkan ke nombor bulat)?",
+  "options": [
+   "14",
+   "19",
+   "11",
+   "15"
+  ],
+  "answer": 0,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 14.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-014",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 18, 24 dan 9 (bundarkan ke nombor bulat)?",
+  "options": [
+   "20",
+   "17",
+   "22",
+   "19"
+  ],
+  "answer": 1,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 17.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-015",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Min bagi 12, 6 dan 27 (bundarkan ke nombor bulat)?",
+  "options": [
+   "13",
+   "14",
+   "15",
+   "10"
+  ],
+  "answer": 2,
+  "explanation": "Min = jumlah / bilangan: jawapan ialah 15.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-016",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 8 cm dan tinggi 9 cm (cm persegi)?",
+  "options": [
+   "39",
+   "31",
+   "33",
+   "36"
+  ],
+  "answer": 3,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 36.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-017",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 14 cm dan tinggi 5 cm (cm persegi)?",
+  "options": [
+   "32",
+   "35",
+   "37",
+   "40"
+  ],
+  "answer": 1,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 35.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-018",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 4 cm dan tinggi 4 cm (cm persegi)?",
+  "options": [
+   "13",
+   "18",
+   "8",
+   "6"
+  ],
+  "answer": 2,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 8.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-019",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 16 cm dan tinggi 8 cm (cm persegi)?",
+  "options": [
+   "64",
+   "59",
+   "63",
+   "62"
+  ],
+  "answer": 0,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 64.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-020",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 14 cm dan tinggi 4 cm (cm persegi)?",
+  "options": [
+   "28",
+   "25",
+   "33",
+   "29"
+  ],
+  "answer": 0,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 28.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-021",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 6 cm dan tinggi 4 cm (cm persegi)?",
+  "options": [
+   "22",
+   "12",
+   "11",
+   "7"
+  ],
+  "answer": 1,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 12.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-022",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 12 cm dan tinggi 5 cm (cm persegi)?",
+  "options": [
+   "31",
+   "33",
+   "30",
+   "32"
+  ],
+  "answer": 2,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 30.",
+  "xp": 10
+ },
+ {
+  "id": "math-6-023",
+  "subject": "math",
+  "year": 6,
+  "topic": "Nisbah, min, luas",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Luas segi tiga tapak 16 cm dan tinggi 6 cm (cm persegi)?",
+  "options": [
+   "43",
+   "46",
+   "48",
+   "51"
+  ],
+  "answer": 2,
+  "explanation": "Luas = 1/2 x tapak x tinggi: jawapan ialah 48.",
+  "xp": 10
+ }
+]

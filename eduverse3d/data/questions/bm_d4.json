@@ -1,0 +1,110 @@
+[
+ {
+  "id": "bm-4-000",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'besar kepala' ialah?",
+  "options": [
+   "suka mencuri",
+   "bersiar-siar",
+   "sombong",
+   "malas"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: sombong.",
+  "xp": 10
+ },
+ {
+  "id": "bm-4-001",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'berat tulang' ialah?",
+  "options": [
+   "pandai bercakap manis",
+   "degil",
+   "malas",
+   "bersiar-siar"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: malas.",
+  "xp": 10
+ },
+ {
+  "id": "bm-4-002",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'buah hati' ialah?",
+  "options": [
+   "rajin",
+   "kekasih",
+   "sombong",
+   "bersiar-siar"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: kekasih.",
+  "xp": 10
+ },
+ {
+  "id": "bm-4-003",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'kepala batu' ialah?",
+  "options": [
+   "pandai bercakap manis",
+   "degil",
+   "suka mencuri",
+   "rajin"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: degil.",
+  "xp": 10
+ },
+ {
+  "id": "bm-4-004",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'makan angin' ialah?",
+  "options": [
+   "rajin",
+   "bersiar-siar",
+   "kekasih",
+   "degil"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: bersiar-siar.",
+  "xp": 10
+ },
+ {
+  "id": "bm-4-005",
+  "subject": "bm",
+  "year": 4,
+  "topic": "Simpulan bahasa",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Maksud simpulan bahasa 'mulut manis' ialah?",
+  "options": [
+   "bersiar-siar",
+   "kekasih",
+   "pandai bercakap manis",
+   "malas"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: pandai bercakap manis.",
+  "xp": 10
+ }
+]

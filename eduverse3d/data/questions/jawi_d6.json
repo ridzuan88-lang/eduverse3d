@@ -1,0 +1,110 @@
+[
+ {
+  "id": "jawi-6-000",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  ايكن",
+  "options": [
+   "kucing",
+   "ikan",
+   "rumah",
+   "makan"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: ikan.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-6-001",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  بولن",
+  "options": [
+   "sekolah",
+   "bulan",
+   "kucing",
+   "pensel"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: bulan.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-6-002",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  بوكو",
+  "options": [
+   "buku",
+   "kucing",
+   "bulan",
+   "ikan"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: buku.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-6-003",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  سكوله",
+  "options": [
+   "sekolah",
+   "kucing",
+   "pensel",
+   "rumah"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: sekolah.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-6-004",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  كوچيڠ",
+  "options": [
+   "ikan",
+   "kucing",
+   "buku",
+   "sekolah"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: kucing.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-6-005",
+  "subject": "jawi",
+  "year": 6,
+  "topic": "Baca Jawi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah perkataan Rumi bagi  ڤنسيل",
+  "options": [
+   "pensel",
+   "sekolah",
+   "makan",
+   "bulan"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: pensel.",
+  "xp": 10
+ }
+]

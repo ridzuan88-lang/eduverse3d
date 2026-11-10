@@ -1,0 +1,434 @@
+[
+ {
+  "id": "math-3-000",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 5 x 7?",
+  "options": [
+   "35",
+   "45",
+   "40",
+   "34"
+  ],
+  "answer": 0,
+  "explanation": "Sifir: jawapan ialah 35.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-001",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 2 x 8?",
+  "options": [
+   "19",
+   "11",
+   "16",
+   "15"
+  ],
+  "answer": 2,
+  "explanation": "Sifir: jawapan ialah 16.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-002",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 3 x 2?",
+  "options": [
+   "6",
+   "7",
+   "3",
+   "5"
+  ],
+  "answer": 0,
+  "explanation": "Sifir: jawapan ialah 6.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-003",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 7 x 2?",
+  "options": [
+   "16",
+   "9",
+   "15",
+   "14"
+  ],
+  "answer": 3,
+  "explanation": "Sifir: jawapan ialah 14.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-004",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 3 x 9?",
+  "options": [
+   "28",
+   "27",
+   "32",
+   "30"
+  ],
+  "answer": 1,
+  "explanation": "Sifir: jawapan ialah 27.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-005",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 9 x 4?",
+  "options": [
+   "36",
+   "37",
+   "31",
+   "34"
+  ],
+  "answer": 0,
+  "explanation": "Sifir: jawapan ialah 36.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-006",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 9 x 7?",
+  "options": [
+   "73",
+   "60",
+   "63",
+   "62"
+  ],
+  "answer": 2,
+  "explanation": "Sifir: jawapan ialah 63.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-007",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Berapakah 8 x 3?",
+  "options": [
+   "29",
+   "34",
+   "24",
+   "19"
+  ],
+  "answer": 2,
+  "explanation": "Sifir: jawapan ialah 24.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-008",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 9 / 3?",
+  "options": [
+   "4",
+   "2",
+   "0",
+   "3"
+  ],
+  "answer": 3,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 3.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-009",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 36 / 9?",
+  "options": [
+   "2",
+   "4",
+   "3",
+   "7"
+  ],
+  "answer": 1,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 4.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-010",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 18 / 3?",
+  "options": [
+   "8",
+   "5",
+   "6",
+   "7"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 6.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-011",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 25 / 5?",
+  "options": [
+   "6",
+   "3",
+   "5",
+   "4"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 5.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-012",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 30 / 6?",
+  "options": [
+   "2",
+   "4",
+   "5",
+   "15"
+  ],
+  "answer": 2,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 5.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-013",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 18 / 2?",
+  "options": [
+   "11",
+   "14",
+   "8",
+   "9"
+  ],
+  "answer": 3,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 9.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-014",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 6 / 3?",
+  "options": [
+   "2",
+   "4",
+   "12",
+   "1"
+  ],
+  "answer": 0,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 2.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-015",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Berapakah 6 / 2?",
+  "options": [
+   "2",
+   "1",
+   "5",
+   "3"
+  ],
+  "answer": 3,
+  "explanation": "Bahagi ialah songsangan darab: jawapan ialah 3.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-016",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 12 x 3?",
+  "options": [
+   "31",
+   "39",
+   "36",
+   "38"
+  ],
+  "answer": 2,
+  "explanation": "Darab dua digit: jawapan ialah 36.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-017",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 13 x 3?",
+  "options": [
+   "34",
+   "49",
+   "39",
+   "44"
+  ],
+  "answer": 2,
+  "explanation": "Darab dua digit: jawapan ialah 39.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-018",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 14 x 5?",
+  "options": [
+   "70",
+   "67",
+   "68",
+   "80"
+  ],
+  "answer": 0,
+  "explanation": "Darab dua digit: jawapan ialah 70.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-019",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 24 x 4?",
+  "options": [
+   "96",
+   "97",
+   "99",
+   "91"
+  ],
+  "answer": 0,
+  "explanation": "Darab dua digit: jawapan ialah 96.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-020",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 24 x 5?",
+  "options": [
+   "120",
+   "122",
+   "115",
+   "119"
+  ],
+  "answer": 0,
+  "explanation": "Darab dua digit: jawapan ialah 120.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-021",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 17 x 2?",
+  "options": [
+   "31",
+   "37",
+   "32",
+   "34"
+  ],
+  "answer": 3,
+  "explanation": "Darab dua digit: jawapan ialah 34.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-022",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 25 x 3?",
+  "options": [
+   "75",
+   "70",
+   "85",
+   "73"
+  ],
+  "answer": 0,
+  "explanation": "Darab dua digit: jawapan ialah 75.",
+  "xp": 10
+ },
+ {
+  "id": "math-3-023",
+  "subject": "math",
+  "year": 3,
+  "topic": "Darab dan bahagi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Berapakah 13 x 4?",
+  "options": [
+   "54",
+   "62",
+   "52",
+   "50"
+  ],
+  "answer": 2,
+  "explanation": "Darab dua digit: jawapan ialah 52.",
+  "xp": 10
+ }
+]

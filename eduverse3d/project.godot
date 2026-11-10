@@ -1,0 +1,30 @@
+config_version=5
+
+[application]
+
+config/name="EduVerse 3D"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://scripts/Game.gd"
+QBank="*res://scripts/education/QBank.gd"
+Auth="*res://scripts/firebase/Auth.gd"
+Net="*res://scripts/multiplayer/Net.gd"
+Sync="*res://scripts/synchronisation/Sync.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

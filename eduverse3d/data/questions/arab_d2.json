@@ -1,0 +1,110 @@
+[
+ {
+  "id": "arab-2-000",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  ت",
+  "options": [
+   "Alif",
+   "Ta'",
+   "Dal",
+   "Ba'"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Ta'.",
+  "xp": 10
+ },
+ {
+  "id": "arab-2-001",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  ث",
+  "options": [
+   "Jim",
+   "Dal",
+   "Tha'",
+   "Ha'"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: Tha'.",
+  "xp": 10
+ },
+ {
+  "id": "arab-2-002",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  ج",
+  "options": [
+   "Dal",
+   "Jim",
+   "Tha'",
+   "Alif"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Jim.",
+  "xp": 10
+ },
+ {
+  "id": "arab-2-003",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  ح",
+  "options": [
+   "Jim",
+   "Ha'",
+   "Dal",
+   "Alif"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Ha'.",
+  "xp": 10
+ },
+ {
+  "id": "arab-2-004",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  خ",
+  "options": [
+   "Kho'",
+   "Ta'",
+   "Jim",
+   "Alif"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Kho'.",
+  "xp": 10
+ },
+ {
+  "id": "arab-2-005",
+  "subject": "arab",
+  "year": 2,
+  "topic": "Huruf Hijaiyah",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Hijaiyah ini?  د",
+  "options": [
+   "Ha'",
+   "Dal",
+   "Jim",
+   "Tha'"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Dal.",
+  "xp": 10
+ }
+]
