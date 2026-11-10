@@ -42,9 +42,9 @@ func _send(o: Dictionary) -> void:
     if ws and ws.get_ready_state() == WebSocketPeer.STATE_OPEN and _joined:
         ws.send_text(JSON.stringify(o))
 
-func send_state(pos: Vector3, rot: float, anim: int) -> void:
+func send_state(pos: Vector3, rot: float, anim: int, veh := 0) -> void:
     _send({"t": "s", "x": snappedf(pos.x, 0.01), "y": snappedf(pos.y, 0.01), "z": snappedf(pos.z, 0.01),
-        "r": snappedf(rot, 0.01), "a": anim})
+        "r": snappedf(rot, 0.01), "a": anim, "v": veh})
 
 func send_emote(i: int) -> void:
     _send({"t": "e", "i": i})
@@ -85,7 +85,7 @@ func _handle(txt: String) -> void:
             var fresh := {}
             for p in m.get("list", []):
                 if str(p.id) != my_id:
-                    fresh[str(p.id)] = {"n": p.n, "av": p.av, "x": p.x, "y": p.y, "z": p.z, "r": p.r, "a": p.a, "m": p.get("m", "")}
+                    fresh[str(p.id)] = {"n": p.n, "av": p.av, "x": p.x, "y": p.y, "z": p.z, "r": p.r, "a": p.a, "v": int(p.get("v", 0)), "m": p.get("m", "")}
             remote = fresh
         "err":
             var why := str(m.get("m", ""))
