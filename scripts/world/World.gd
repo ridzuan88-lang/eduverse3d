@@ -6,6 +6,7 @@ signal back_to_menu
 const PlayerScript := preload("res://scripts/player/Player.gd")
 const TouchScript := preload("res://scripts/ui/TouchUI.gd")
 const QuizScript := preload("res://scripts/education/Quiz.gd")
+const VehicleScript := preload("res://scripts/world/Vehicle.gd")
 const SPAWN := Vector3(0, 2, 10)
 const PARKOUR_START := Vector3(100, 2, 116)
 const TELEPORTS := {
@@ -27,6 +28,12 @@ var remotes := {}
 var pet: Node3D = null
 var pet_idx := -1
 var quiz_open := false
+var vehicles: Array = []
+var coins: Array = []
+var pads: Array = []
+var clouds: Array = []
+var zone_now := ""
+var _save_t := 0.0
 var _t := 0.0
 var _net_t := 0.0
 var _info_t := 0.0
@@ -37,6 +44,11 @@ func _ready() -> void:
     _zones()
     _trees()
     _parkour()
+    _decor()
+    _vehicles()
+    _coins()
+    _pads()
+    _clouds()
     hud = CanvasLayer.new()
     add_child(hud)
     touch = TouchScript.new()
@@ -205,27 +217,21 @@ func _parkour() -> void:
 # ---------- gelung ----------
 func _process(dt: float) -> void:
     _t += dt
-    var best := {}
-    var bd := 5.0
-    for s in spots:
-        var d: float = player.position.distance_to(s.pos)
-        if d < bd:
-            bd = d
-            best = s
-    near = best
+    near = _find_near()
     prompt_l.text = "" if (near.is_empty() or panel != null or quiz_open) else "Tekan AMBIL: " + str(near.title)
     player.respawn = PARKOUR_START if (player.position.x > 60.0 and player.position.z > 60.0) else SPAWN
     _update_pet(dt)
+    _update_extras(dt)
     if Game.online_mode:
         _net_t += dt
         if _net_t > 0.1:
             _net_t = 0.0
-            Net.send_state(player.position, player.model.rotation.y, player.anim_state)
+            Net.send_state(player.position, player.model.rotation.y, player.anim_state, player.riding.kind if player.riding != null else 0)
         _update_remotes(dt)
     _info_t -= dt
     if _info_t <= 0.0:
         _info_t = 0.4
-        var st := ("  [%s]" % Net.status) if Game.online_mode else "  [luar talian]"
+        var st := ("  [%s | %d pemain]" % [Net.status, Net.remote.size() + 1]) if Game.online_mode else "  [luar talian]"
         info_l.text = "%s  Darjah %d  Tahap %d  XP %d  Syiling %d%s" % [Game.d.name, int(Game.d.year), Game.level(), int(Game.d.xp), int(Game.d.coins), st]
 
 func _update_pet(dt: float) -> void:
@@ -283,7 +289,18 @@ func _update_remotes(dt: float) -> void:
         n.position = n.position.lerp(Vector3(r.x, r.y, r.z), clampf(dt * 12.0, 0.0, 1.0))
         var mm: Node3D = n.get_node("Model")
         mm.rotation.y = lerp_angle(mm.rotation.y, float(r.r), clampf(dt * 10.0, 0.0, 1.0))
-        Avatar.animate(mm, _t, int(r.a))
+        var vk := int(r.get("v", 0))
+        if int(n.get_meta("v", 0)) != vk:
+            n.set_meta("v", vk)
+            var old := mm.get_node_or_null("Veh")
+            if old:
+                old.queue_free()
+            if vk > 0:
+                var vm := VehicleScript.build_model(vk)
+                vm.name = "Veh"
+                vm.position.y = -float(VehicleScript.KINDS[vk].seat)
+                mm.add_child(vm)
+        Avatar.animate(mm, _t, 0 if vk > 0 else int(r.a))
         n.get_node("Msg").text = str(r.get("m", ""))
     for id in remotes.keys():
         if not Net.remote.has(id):
@@ -316,6 +333,8 @@ func _interact() -> void:
         "rank": _panel_rank()
         "quiz": _panel_quiz(str(near.arg), str(near.title))
         "chest": _chest()
+        "vehicle": _mount(near.node)
+        "dismount": _dismount()
 
 func _open_panel(title: String, w := 760, side := false) -> VBoxContainer:
     _close_panel()
@@ -574,7 +593,7 @@ func open_menu() -> void:
         b.pressed.connect(_teleport.bind(TELEPORTS[k]))
         grid.add_child(b)
     if Game.online_mode:
-        v.add_child(UI.lbl("Dalam talian: %s  |  menunggu sync: %d" % [Net.status, Game.d.queue.size()], 18, Color("a5d6a7")))
+        v.add_child(UI.lbl("Dalam talian: %s | bilik: %s | pemain: %d | sync tertunda: %d" % [Net.status, Net.room, Net.remote.size() + 1, Game.d.queue.size()], 18, Color("a5d6a7")))
         var hr := HBoxContainer.new()
         var code := LineEdit.new()
         code.placeholder_text = "Kod bilik peribadi (3-10 huruf/nombor)"
@@ -611,6 +630,8 @@ func _set_year(i: int) -> void:
     Game.save()
 
 func _teleport(pos: Vector3) -> void:
+    if player.riding != null:
+        _dismount()
     player.position = pos
     player.velocity = Vector3.ZERO
     _close_panel()
@@ -630,3 +651,187 @@ func _exit() -> void:
     Game.save()
     Net.stop()
     back_to_menu.emit()
+
+# ---------- hiasan, kenderaan & benda interaktif ----------
+func _glow(c: Color) -> StandardMaterial3D:
+    var m := Avatar.mat(c)
+    m.emission_enabled = true
+    m.emission = c
+    m.emission_energy_multiplier = 1.4
+    return m
+
+func _lamp(x: float, z: float) -> void:
+    Avatar.part(self, Avatar.cyl(0.1, 0.12, 4.0), Color("424242"), Vector3(x, 2.0, z))
+    var b := MeshInstance3D.new()
+    b.mesh = Avatar.sph(0.35)
+    b.material_override = _glow(Color("ffee58"))
+    b.position = Vector3(x, 4.1, z)
+    add_child(b)
+
+func _decor() -> void:
+    for r in [[45.0, 0.0, 90.0, 0.3], [-45.0, 0.0, 90.0, 0.3], [0.0, -50.0, 0.3, 100.0], [0.0, 50.0, 0.3, 100.0], [55.0, 100.0, 110.0, 0.3]]:
+        _box(Vector3(r[0], 0.07, r[1]), Vector3(r[2], 0.02, r[3]), Color("ffd54f"), false)
+    for i in range(1, 7):
+        _lamp(i * 16.0, 4.2)
+        _lamp(-i * 16.0, 4.2)
+        _lamp(4.2, i * 16.0)
+        _lamp(4.2, -i * 16.0)
+    var hc := [Color("ffab91"), Color("fff59d"), Color("a5d6a7"), Color("90caf9"), Color("ce93d8"), Color("ffcc80")]
+    var hp := [Vector2(35, -22), Vector2(-35, -22), Vector2(35, 22), Vector2(-35, 22), Vector2(62, -20), Vector2(-62, -20),
+        Vector2(62, 22), Vector2(-62, 22), Vector2(-20, 62), Vector2(20, 62), Vector2(-20, -62), Vector2(20, -62)]
+    for i in hp.size():
+        var p: Vector2 = hp[i]
+        _box(Vector3(p.x, 2.0, p.y), Vector3(6, 4, 6), hc[i % hc.size()])
+        var roof := MeshInstance3D.new()
+        var pm := PrismMesh.new()
+        pm.size = Vector3(7, 2.2, 7)
+        roof.mesh = pm
+        roof.material_override = Avatar.mat(Color("c62828"))
+        roof.position = Vector3(p.x, 5.1, p.y)
+        add_child(roof)
+        _box(Vector3(p.x, 1.0, p.y + 3.02), Vector3(1.2, 2, 0.1), Color("5d4037"), false)
+    _box(Vector3(12, 3.3, 26), Vector3(5, 0.2, 2.5), Color("0277bd"), false)
+    _box(Vector3(9.8, 1.6, 26), Vector3(0.15, 3.2, 0.15), Color("616161"), false)
+    _box(Vector3(14.2, 1.6, 26), Vector3(0.15, 3.2, 0.15), Color("616161"), false)
+    _label("Perhentian Bas", Vector3(12, 5.0, 26), 56)
+    var cm := Avatar.mat(Color(1, 1, 1))
+    cm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+    var rng := RandomNumberGenerator.new()
+    rng.seed = 3
+    for i in 14:
+        var c := Node3D.new()
+        c.position = Vector3(rng.randf_range(-240, 240), rng.randf_range(40, 65), rng.randf_range(-240, 240))
+        for k in 3:
+            var m := MeshInstance3D.new()
+            m.mesh = Avatar.sph(6.0)
+            m.material_override = cm
+            m.scale = Vector3(1.6, 0.5, 1.0)
+            m.position = Vector3((k - 1) * 7.0, rng.randf_range(-1, 1), 0)
+            c.add_child(m)
+        add_child(c)
+        clouds.append(c)
+
+func _clouds() -> void:
+    pass
+
+func _vehicles() -> void:
+    var defs := [[1, -4.0, 18.0, 0.0], [2, 4.0, 18.0, 0.0], [3, 0.0, 34.0, 0.0],
+        [2, 80.0, 18.0, 1.57], [1, -80.0, 18.0, 0.0], [3, 12.0, -84.0, 0.0],
+        [2, 0.0, 80.0, 0.0], [1, 108.0, 110.0, 0.0]]
+    for d in defs:
+        var v := VehicleScript.new()
+        add_child(v)
+        v.setup(int(d[0]), Vector3(d[1], 0.1, d[2]), float(d[3]))
+        vehicles.append(v)
+
+func _coins() -> void:
+    var cm := _glow(Color("ffc107"))
+    var mesh := Avatar.cyl(0.45, 0.45, 0.1)
+    var pts: Array = []
+    for i in range(1, 8):
+        pts.append(Vector3(i * 12.0, 1.3, 0))
+        pts.append(Vector3(-i * 12.0, 1.3, 0))
+        pts.append(Vector3(0, 1.3, -i * 12.0))
+        pts.append(Vector3(0, 1.3, i * 12.0))
+    for c in [Vector2(0, 0), Vector2(90, 0), Vector2(-90, 0), Vector2(0, -100), Vector2(0, 100), Vector2(100, 100)]:
+        for k in 6:
+            var a := k * TAU / 6.0
+            pts.append(Vector3(c.x + cos(a) * 16.0, 1.3, c.y + sin(a) * 16.0))
+    for i in range(1, 9):
+        pts.append(Vector3(100.0 + sin(i * 1.3) * 2.5, i + 2.2, 115.0 - i * 5.0))
+    for p in pts:
+        var pivot := Node3D.new()
+        pivot.position = p
+        var m := MeshInstance3D.new()
+        m.mesh = mesh
+        m.material_override = cm
+        m.rotation.x = PI / 2.0
+        pivot.add_child(m)
+        add_child(pivot)
+        coins.append({"n": pivot, "t": 0.0})
+
+func _pads() -> void:
+    var pm := _glow(Color("00e676"))
+    for p in [Vector2(22, -8), Vector2(-22, -8), Vector2(80, -22), Vector2(-80, -22), Vector2(22, -96), Vector2(-22, 100), Vector2(92, 104)]:
+        var n := _box(Vector3(p.x, 0.1, p.y), Vector3(3, 0.2, 3), Color("00c853"), false)
+        n.get_child(0).material_override = pm
+        _label("Papan Lompat", Vector3(p.x, 2.2, p.y), 40)
+        pads.append(Vector3(p.x, 0, p.y))
+
+func _find_near() -> Dictionary:
+    if player.riding != null:
+        return {"kind": "dismount", "title": "Turun dari kenderaan"}
+    var best := {}
+    var bd := 99.0
+    for s in spots:
+        var d: float = player.position.distance_to(s.pos)
+        if d < 5.0 and d < bd:
+            bd = d
+            best = s
+    for v in vehicles:
+        if v.driver != null:
+            continue
+        var d2: float = player.position.distance_to(v.position)
+        if d2 < v.reach and d2 < bd:
+            bd = d2
+            best = {"kind": "vehicle", "title": "Naik " + v.label_name, "node": v}
+    return best
+
+func _mount(v) -> void:
+    if v == null or v.driver != null:
+        return
+    v.driver = player
+    player.set_riding(v)
+    touch.set_riding(true)
+    Game.tone([330, 440])
+
+func _dismount() -> void:
+    var v = player.riding
+    if v == null:
+        return
+    v.driver = null
+    v.input = Vector2.ZERO
+    var side := 1.4 + float(v.reach) * 0.4
+    player.set_riding(null)
+    player.position = v.position + Vector3(side, 0.6, 0).rotated(Vector3.UP, v.rotation.y)
+    touch.set_riding(false)
+
+func _update_extras(dt: float) -> void:
+    for c in clouds:
+        c.position.x += dt * 2.0
+        if c.position.x > 260.0:
+            c.position.x = -260.0
+    var pp: Vector3 = player.position
+    for c in coins:
+        var n: Node3D = c.n
+        n.rotation.y += dt * 2.5
+        if c.t > 0.0:
+            c.t -= dt
+            if c.t <= 0.0:
+                n.visible = true
+        elif Vector2(n.position.x, n.position.z).distance_to(Vector2(pp.x, pp.z)) < 1.8 and absf(n.position.y - pp.y) < 3.0:
+            c.t = 45.0
+            n.visible = false
+            Game.d.coins = int(Game.d.coins) + 1
+            _save_t = 3.0
+            Game.tone([988, 1319], 0.07)
+    if _save_t > 0.0:
+        _save_t -= dt
+        if _save_t <= 0.0:
+            Game.save()
+    if player.riding == null and player.is_on_floor():
+        for p in pads:
+            if Vector2(p.x, p.z).distance_to(Vector2(pp.x, pp.z)) < 1.8:
+                player.boost = 16.0
+                Game.tone([440, 660, 880], 0.08)
+                break
+    var zones := {"EduTown": Vector2(0, 0), "Pulau Matematik": Vector2(90, 0), "Kerajaan Bahasa": Vector2(-90, 0),
+        "Dunia Sains": Vector2(0, -100), "Dunia Jawi & Arab": Vector2(0, 100), "Dunia Pengembaraan": Vector2(100, 100)}
+    var here := ""
+    for k in zones:
+        if Vector2(pp.x, pp.z).distance_to(zones[k]) < 38.0:
+            here = k
+    if here != zone_now:
+        zone_now = here
+        if here != "":
+            _toast("Selamat datang ke " + here)
