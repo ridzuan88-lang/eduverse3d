@@ -34,8 +34,11 @@ func _ready() -> void:
     _mk("menu", "MENU", Vector2(120, 60))
     _mk("zin", "+", Vector2(60, 60))
     _mk("zout", "-", Vector2(60, 60))
-    resized.connect(_layout)
+    get_viewport().size_changed.connect(_layout)
     _layout()
+
+func _vs() -> Vector2:
+    return get_viewport_rect().size
 
 func _mk(id: String, text: String, sz: Vector2) -> void:
     var b := UI.btn(text, sz, 22)
@@ -46,7 +49,7 @@ func _mk(id: String, text: String, sz: Vector2) -> void:
     _b[id] = b
 
 func _layout() -> void:
-    var s := size
+    var s := _vs()
     _b.jump.position = Vector2(s.x - 190, s.y - 190)
     _b.run.position = Vector2(s.x - 160, s.y - 300)
     _b.act.position = Vector2(s.x - 380, s.y - 130)
@@ -79,7 +82,7 @@ func _input(e: InputEvent) -> void:
             var k := _hit(e.position)
             if k != "":
                 _press(k)
-            elif e.position.x < size.x * 0.45 and _joy == -1:
+            elif e.position.x < _vs().x * 0.45 and _joy == -1:
                 _joy = e.index
                 _o = e.position
                 _p = e.position
@@ -108,4 +111,4 @@ func _draw() -> void:
         draw_circle(_o, 70, Color(1, 1, 1, 0.15))
         draw_circle(_o + (_p - _o).limit_length(70.0), 30, Color(1, 1, 1, 0.45))
     else:
-        draw_circle(Vector2(160, size.y - 160), 70, Color(1, 1, 1, 0.07))
+        draw_circle(Vector2(160, _vs().y - 160), 70, Color(1, 1, 1, 0.07))

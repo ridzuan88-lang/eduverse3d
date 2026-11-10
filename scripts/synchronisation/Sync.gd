@@ -4,7 +4,7 @@ extends Node
 var busy := false
 
 func sync_now(retry := true) -> void:
-    if busy or Auth.id_token == "" or not Auth.configured:
+    if busy or Auth.id_token == "" or not Auth.configured or not Auth.server_ok():
         return
     var txs: Array = []
     for t in Game.d.queue:

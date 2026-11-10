@@ -17,19 +17,26 @@ func _ready() -> void:
         api_key = str(cf.get_value("firebase", "api_key", ""))
         server_url = str(cf.get_value("server", "ws_url", ""))
         http_url = str(cf.get_value("server", "http_url", ""))
-           configured = api_key != "" and not api_key.begins_with("YOUR_")
+    configured = api_key != "" and not api_key.begins_with("YOUR_")
+
+func server_ok() -> bool:
+    return http_url != "" and not http_url.contains("YOUR-")
 
 func _post(url: String, body: String, ctype: String, cb: Callable) -> void:
     var r := HTTPRequest.new()
+    r.timeout = 20.0
     add_child(r)
     r.request_completed.connect(func(res: int, code: int, _h: PackedStringArray, bytes: PackedByteArray):
         r.queue_free()
         var j = JSON.parse_string(bytes.get_string_from_utf8())
-        cb.call(res == HTTPRequest.RESULT_SUCCESS and code == 200, j if j is Dictionary else {}))
+        var d: Dictionary = j if j is Dictionary else {}
+        d["_res"] = res
+        d["_code"] = code
+        cb.call(res == HTTPRequest.RESULT_SUCCESS and code == 200, d))
     var err := r.request(url, ["Content-Type: " + ctype], HTTPClient.METHOD_POST, body)
     if err != OK:
         r.queue_free()
-        cb.call(false, {})
+        cb.call(false, {"_res": -1, "_code": err})
 
 func _err(j: Dictionary) -> String:
     var m := ""
@@ -39,7 +46,7 @@ func _err(j: Dictionary) -> String:
     if m.begins_with("INVALID_LOGIN") or m.begins_with("INVALID_PASSWORD") or m.begins_with("EMAIL_NOT_FOUND"): return "E-mel atau kata laluan salah."
     if m.begins_with("WEAK_PASSWORD"): return "Kata laluan terlalu lemah."
     if m.begins_with("TOO_MANY"): return "Terlalu banyak cubaan. Cuba sebentar lagi."
-    return "Gagal. Periksa sambungan internet dan konfigurasi Firebase."
+    return "Gagal (res=%s, http=%s, %s). Periksa internet & tetapan Firebase." % [str(j.get("_res", "?")), str(j.get("_code", "?")), m]
 
 func _store(j: Dictionary) -> void:
     id_token = str(j.get("idToken", j.get("id_token", "")))
