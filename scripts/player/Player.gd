@@ -1,5 +1,5 @@
 extends CharacterBody3D
-# Pengawal orang ketiga: berjalan, berlari, melompat, kamera orbit + zum.
+# Pengawal orang ketiga: berjalan, berlari, melompat, kamera orbit + zum, dan menunggang kenderaan.
 
 const WALK := 5.0
 const RUN := 9.0
@@ -14,8 +14,11 @@ var pitch := 0.4
 var dist := 7.0
 var anim_state := 0
 var respawn := Vector3(0, 2, 10)
+var riding = null
+var boost := 0.0
 var _jump_req := false
 var _t := 0.0
+var _free_t := 0.0
 
 func setup(touch) -> void:
     ui = touch
@@ -32,8 +35,15 @@ func setup(touch) -> void:
     add_child(cam)
     cam.current = true
     touch.jump.connect(func(): _jump_req = true)
-    touch.zoom.connect(func(dl: float): dist = clampf(dist + dl, 3.5, 14.0))
+    touch.zoom.connect(func(dl: float): dist = clampf(dist + dl, 3.5, 16.0))
     rebuild_model()
+
+func set_riding(v) -> void:
+    riding = v
+    collision_layer = 0 if v != null else 1
+    dist = 10.0 if v != null else 7.0
+    if v == null:
+        velocity = Vector3.ZERO
 
 func rebuild_model() -> void:
     var ry := 0.0
@@ -44,8 +54,15 @@ func rebuild_model() -> void:
     model.rotation.y = ry
     add_child(model)
 
+func _update_cam() -> void:
+    var focus := global_position + Vector3(0, 1.6, 0)
+    var off := Vector3(0, 0, dist).rotated(Vector3.RIGHT, -pitch).rotated(Vector3.UP, yaw)
+    cam.global_position = focus + off
+    cam.look_at(focus, Vector3.UP)
+
 func _physics_process(dt: float) -> void:
     _t += dt
+    _free_t = maxf(_free_t - dt, 0.0)
     var inp := Vector2.ZERO
     var run := false
     var active := true
@@ -53,6 +70,8 @@ func _physics_process(dt: float) -> void:
         active = ui.enabled
         inp = ui.move
         run = ui.run
+        if ui.cam.length() > 0.0:
+            _free_t = 1.5
         yaw -= ui.cam.x * 0.006
         pitch = clampf(pitch + ui.cam.y * 0.006, -0.1, 1.2)
         ui.cam = Vector2.ZERO
@@ -65,6 +84,20 @@ func _physics_process(dt: float) -> void:
         run = run or Input.is_key_pressed(KEY_SHIFT)
         jump_key = Input.is_key_pressed(KEY_SPACE)
     inp = inp.limit_length(1.0)
+    if riding != null:
+        riding.input = inp
+        if _jump_req or jump_key:
+            riding.brake_t = 0.5
+        _jump_req = false
+        global_position = riding.global_position + Vector3(0, riding.seat_h, 0)
+        velocity = Vector3.ZERO
+        model.rotation.y = riding.rotation.y
+        anim_state = 0
+        Avatar.animate(model, _t, 0)
+        if _free_t <= 0.0:
+            yaw = lerp_angle(yaw, riding.rotation.y + PI, clampf(2.5 * dt, 0.0, 1.0))
+        _update_cam()
+        return
     var dir := Vector3(inp.x, 0.0, inp.y).rotated(Vector3.UP, yaw)
     var spd := RUN if run else WALK
     velocity.x = dir.x * spd
@@ -73,6 +106,9 @@ func _physics_process(dt: float) -> void:
         velocity.y = 0.0
         if _jump_req or jump_key:
             velocity.y = JUMP
+        if boost > 0.0:
+            velocity.y = boost
+            boost = 0.0
     else:
         velocity.y -= GRAV * dt
     _jump_req = false
@@ -87,7 +123,4 @@ func _physics_process(dt: float) -> void:
     if moving:
         anim_state = 2 if run else 1
     Avatar.animate(model, _t, anim_state)
-    var focus := global_position + Vector3(0, 1.6, 0)
-    var off := Vector3(0, 0, dist).rotated(Vector3.RIGHT, -pitch).rotated(Vector3.UP, yaw)
-    cam.global_position = focus + off
-    cam.look_at(focus, Vector3.UP)
+    _update_cam()
