@@ -1,0 +1,110 @@
+[
+ {
+  "id": "sci-6-000",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Perut ialah sebahagian sistem?",
+  "options": [
+   "saraf",
+   "peredaran darah",
+   "pencernaan",
+   "rangka"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: pencernaan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-6-001",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Otak ialah sebahagian sistem?",
+  "options": [
+   "pencernaan",
+   "rangka",
+   "pernafasan",
+   "saraf"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: saraf.",
+  "xp": 10
+ },
+ {
+  "id": "sci-6-002",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Tulang ialah sebahagian sistem?",
+  "options": [
+   "peredaran darah",
+   "rangka",
+   "saraf",
+   "pencernaan"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: rangka.",
+  "xp": 10
+ },
+ {
+  "id": "sci-6-003",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Buah pinggang ialah sebahagian sistem?",
+  "options": [
+   "peredaran darah",
+   "rangka",
+   "perkumuhan",
+   "pernafasan"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: perkumuhan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-6-004",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Trakea ialah sebahagian sistem?",
+  "options": [
+   "pernafasan",
+   "pencernaan",
+   "peredaran darah",
+   "saraf"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: pernafasan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-6-005",
+  "subject": "sci",
+  "year": 6,
+  "topic": "Sistem badan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Tulang belakang ialah sebahagian sistem?",
+  "options": [
+   "pencernaan",
+   "saraf",
+   "pernafasan",
+   "rangka"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: rangka.",
+  "xp": 10
+ }
+]

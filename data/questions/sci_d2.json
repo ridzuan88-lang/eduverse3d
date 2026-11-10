@@ -1,0 +1,110 @@
+[
+ {
+  "id": "sci-2-000",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Telinga digunakan untuk?",
+  "options": [
+   "mendengar",
+   "menyentuh",
+   "merasa",
+   "memegang"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: mendengar.",
+  "xp": 10
+ },
+ {
+  "id": "sci-2-001",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Lidah digunakan untuk?",
+  "options": [
+   "melihat",
+   "merasa",
+   "menghidu",
+   "mengunyah"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: merasa.",
+  "xp": 10
+ },
+ {
+  "id": "sci-2-002",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Kulit digunakan untuk?",
+  "options": [
+   "memegang",
+   "mengunyah",
+   "berjalan",
+   "menyentuh"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: menyentuh.",
+  "xp": 10
+ },
+ {
+  "id": "sci-2-003",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Kaki digunakan untuk?",
+  "options": [
+   "menghidu",
+   "mengunyah",
+   "berjalan",
+   "memegang"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: berjalan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-2-004",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Tangan digunakan untuk?",
+  "options": [
+   "memegang",
+   "menyentuh",
+   "menghidu",
+   "mengunyah"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: memegang.",
+  "xp": 10
+ },
+ {
+  "id": "sci-2-005",
+  "subject": "sci",
+  "year": 2,
+  "topic": "Deria dan anggota",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Gigi digunakan untuk?",
+  "options": [
+   "menyentuh",
+   "merasa",
+   "mengunyah",
+   "melihat"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: mengunyah.",
+  "xp": 10
+ }
+]

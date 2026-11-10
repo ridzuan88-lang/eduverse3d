@@ -1,0 +1,110 @@
+[
+ {
+  "id": "arab-5-000",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  أب",
+  "options": [
+   "meja",
+   "kereta",
+   "ayah",
+   "guru"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: ayah.",
+  "xp": 10
+ },
+ {
+  "id": "arab-5-001",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  أم",
+  "options": [
+   "ibu",
+   "guru",
+   "meja",
+   "pelajar"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: ibu.",
+  "xp": 10
+ },
+ {
+  "id": "arab-5-002",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  معلم",
+  "options": [
+   "kerusi",
+   "guru",
+   "ayah",
+   "masjid"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: guru.",
+  "xp": 10
+ },
+ {
+  "id": "arab-5-003",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  طالب",
+  "options": [
+   "ibu",
+   "pelajar",
+   "masjid",
+   "ayah"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: pelajar.",
+  "xp": 10
+ },
+ {
+  "id": "arab-5-004",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  مسجد",
+  "options": [
+   "kerusi",
+   "ibu",
+   "masjid",
+   "ayah"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: masjid.",
+  "xp": 10
+ },
+ {
+  "id": "arab-5-005",
+  "subject": "arab",
+  "year": 5,
+  "topic": "Kosa kata 2",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  سيارة",
+  "options": [
+   "masjid",
+   "kereta",
+   "ibu",
+   "ayah"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: kereta.",
+  "xp": 10
+ }
+]

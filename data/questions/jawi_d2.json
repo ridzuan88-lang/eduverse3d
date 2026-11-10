@@ -1,0 +1,110 @@
+[
+ {
+  "id": "jawi-2-000",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ت",
+  "options": [
+   "Alif",
+   "Dal",
+   "Ta",
+   "Jim"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: Ta.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-2-001",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ج",
+  "options": [
+   "Sin",
+   "Ta",
+   "Jim",
+   "Dal"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: Jim.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-2-002",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  د",
+  "options": [
+   "Alif",
+   "Dal",
+   "Mim",
+   "Sin"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Dal.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-2-003",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ر",
+  "options": [
+   "Sin",
+   "Dal",
+   "Ra",
+   "Alif"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: Ra.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-2-004",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  س",
+  "options": [
+   "Sin",
+   "Alif",
+   "Dal",
+   "Jim"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Sin.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-2-005",
+  "subject": "jawi",
+  "year": 2,
+  "topic": "Huruf Jawi",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  م",
+  "options": [
+   "Dal",
+   "Ba",
+   "Ra",
+   "Mim"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: Mim.",
+  "xp": 10
+ }
+]

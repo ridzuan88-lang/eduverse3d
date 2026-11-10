@@ -1,0 +1,110 @@
+[
+ {
+  "id": "en-2-000",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the opposite of 'up'?",
+  "options": [
+   "down",
+   "sad",
+   "cold",
+   "short"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: down.",
+  "xp": 10
+ },
+ {
+  "id": "en-2-001",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the opposite of 'day'?",
+  "options": [
+   "down",
+   "night",
+   "small",
+   "close"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: night.",
+  "xp": 10
+ },
+ {
+  "id": "en-2-002",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the opposite of 'happy'?",
+  "options": [
+   "down",
+   "slow",
+   "sad",
+   "close"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: sad.",
+  "xp": 10
+ },
+ {
+  "id": "en-2-003",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the opposite of 'fast'?",
+  "options": [
+   "down",
+   "close",
+   "slow",
+   "small"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: slow.",
+  "xp": 10
+ },
+ {
+  "id": "en-2-004",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the opposite of 'open'?",
+  "options": [
+   "night",
+   "sad",
+   "close",
+   "short"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: close.",
+  "xp": 10
+ },
+ {
+  "id": "en-2-005",
+  "subject": "en",
+  "year": 2,
+  "topic": "Opposites",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the opposite of 'tall'?",
+  "options": [
+   "close",
+   "cold",
+   "down",
+   "short"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: short.",
+  "xp": 10
+ }
+]

@@ -1,0 +1,110 @@
+[
+ {
+  "id": "sci-5-000",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Jantung ialah sebahagian sistem?",
+  "options": [
+   "pernafasan",
+   "saraf",
+   "peredaran darah",
+   "rangka"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: peredaran darah.",
+  "xp": 10
+ },
+ {
+  "id": "sci-5-001",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Paru-paru ialah sebahagian sistem?",
+  "options": [
+   "pernafasan",
+   "peredaran darah",
+   "perkumuhan",
+   "rangka"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: pernafasan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-5-002",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Perut ialah sebahagian sistem?",
+  "options": [
+   "perkumuhan",
+   "pernafasan",
+   "pencernaan",
+   "saraf"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: pencernaan.",
+  "xp": 10
+ },
+ {
+  "id": "sci-5-003",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Otak ialah sebahagian sistem?",
+  "options": [
+   "perkumuhan",
+   "saraf",
+   "pencernaan",
+   "rangka"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: saraf.",
+  "xp": 10
+ },
+ {
+  "id": "sci-5-004",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Tulang ialah sebahagian sistem?",
+  "options": [
+   "pencernaan",
+   "perkumuhan",
+   "pernafasan",
+   "rangka"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: rangka.",
+  "xp": 10
+ },
+ {
+  "id": "sci-5-005",
+  "subject": "sci",
+  "year": 5,
+  "topic": "Sistem badan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Buah pinggang ialah sebahagian sistem?",
+  "options": [
+   "perkumuhan",
+   "rangka",
+   "peredaran darah",
+   "saraf"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: perkumuhan.",
+  "xp": 10
+ }
+]

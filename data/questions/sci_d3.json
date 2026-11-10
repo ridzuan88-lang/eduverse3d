@@ -1,0 +1,110 @@
+[
+ {
+  "id": "sci-3-000",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Planet terbesar dalam Sistem Suria?",
+  "options": [
+   "Bumi",
+   "Marikh",
+   "Utarid",
+   "Musytari"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: Musytari.",
+  "xp": 10
+ },
+ {
+  "id": "sci-3-001",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Planet paling hampir dengan Matahari?",
+  "options": [
+   "Musytari",
+   "Utarid",
+   "Zuhal",
+   "Neptun"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Utarid.",
+  "xp": 10
+ },
+ {
+  "id": "sci-3-002",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Planet yang dikenali sebagai Planet Merah?",
+  "options": [
+   "Marikh",
+   "Utarid",
+   "Musytari",
+   "Bumi"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Marikh.",
+  "xp": 10
+ },
+ {
+  "id": "sci-3-003",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Planet tempat kita tinggal?",
+  "options": [
+   "Bumi",
+   "Marikh",
+   "Zuhrah",
+   "Musytari"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Bumi.",
+  "xp": 10
+ },
+ {
+  "id": "sci-3-004",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Planet yang mempunyai cincin yang jelas?",
+  "options": [
+   "Musytari",
+   "Zuhal",
+   "Bumi",
+   "Marikh"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Zuhal.",
+  "xp": 10
+ },
+ {
+  "id": "sci-3-005",
+  "subject": "sci",
+  "year": 3,
+  "topic": "Sistem Suria",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Planet paling jauh dari Matahari?",
+  "options": [
+   "Neptun",
+   "Bumi",
+   "Uranus",
+   "Musytari"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Neptun.",
+  "xp": 10
+ }
+]

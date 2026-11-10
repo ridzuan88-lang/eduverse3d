@@ -1,0 +1,110 @@
+[
+ {
+  "id": "en-6-000",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the past tense of 'see'?",
+  "options": [
+   "wrote",
+   "swam",
+   "ate",
+   "saw"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: saw.",
+  "xp": 10
+ },
+ {
+  "id": "en-6-001",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "What is the past tense of 'buy'?",
+  "options": [
+   "wrote",
+   "bought",
+   "saw",
+   "brought"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: bought.",
+  "xp": 10
+ },
+ {
+  "id": "en-6-002",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the past tense of 'swim'?",
+  "options": [
+   "ate",
+   "brought",
+   "saw",
+   "swam"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: swam.",
+  "xp": 10
+ },
+ {
+  "id": "en-6-003",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "What is the past tense of 'write'?",
+  "options": [
+   "swam",
+   "saw",
+   "took",
+   "wrote"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: wrote.",
+  "xp": 10
+ },
+ {
+  "id": "en-6-004",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the past tense of 'take'?",
+  "options": [
+   "swam",
+   "went",
+   "took",
+   "saw"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: took.",
+  "xp": 10
+ },
+ {
+  "id": "en-6-005",
+  "subject": "en",
+  "year": 6,
+  "topic": "Past tense",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "What is the past tense of 'bring'?",
+  "options": [
+   "brought",
+   "swam",
+   "took",
+   "went"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: brought.",
+  "xp": 10
+ }
+]

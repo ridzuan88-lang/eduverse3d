@@ -1,0 +1,110 @@
+[
+ {
+  "id": "jawi-4-000",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  چ",
+  "options": [
+   "Cha",
+   "Nga",
+   "Nya",
+   "Pa"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Cha.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-4-001",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ݢ",
+  "options": [
+   "Ga",
+   "Pa",
+   "Nga",
+   "Kaf"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Ga.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-4-002",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ڽ",
+  "options": [
+   "Ga",
+   "Cha",
+   "Nya",
+   "Va"
+  ],
+  "answer": 2,
+  "explanation": "Jawapan: Nya.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-4-003",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ۏ",
+  "options": [
+   "Kaf",
+   "Va",
+   "Nga",
+   "Pa"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Va.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-4-004",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ك",
+  "options": [
+   "Cha",
+   "Kaf",
+   "Ya",
+   "Pa"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: Kaf.",
+  "xp": 10
+ },
+ {
+  "id": "jawi-4-005",
+  "subject": "jawi",
+  "year": 4,
+  "topic": "Huruf Jawi tambahan",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah nama huruf Jawi ini?  ي",
+  "options": [
+   "Ya",
+   "Nga",
+   "Kaf",
+   "Nya"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: Ya.",
+  "xp": 10
+ }
+]

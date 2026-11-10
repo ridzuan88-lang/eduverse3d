@@ -1,0 +1,110 @@
+[
+ {
+  "id": "arab-4-000",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  باب",
+  "options": [
+   "buku",
+   "pintu",
+   "bulan",
+   "pen"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: pintu.",
+  "xp": 10
+ },
+ {
+  "id": "arab-4-001",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "easy",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  بيت",
+  "options": [
+   "pintu",
+   "buku",
+   "matahari",
+   "rumah"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: rumah.",
+  "xp": 10
+ },
+ {
+  "id": "arab-4-002",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  مدرسة",
+  "options": [
+   "bulan",
+   "sekolah",
+   "pen",
+   "pintu"
+  ],
+  "answer": 1,
+  "explanation": "Jawapan: sekolah.",
+  "xp": 10
+ },
+ {
+  "id": "arab-4-003",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "medium",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  ماء",
+  "options": [
+   "air",
+   "buku",
+   "bulan",
+   "rumah"
+  ],
+  "answer": 0,
+  "explanation": "Jawapan: air.",
+  "xp": 10
+ },
+ {
+  "id": "arab-4-004",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  شمس",
+  "options": [
+   "pintu",
+   "pen",
+   "bulan",
+   "matahari"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: matahari.",
+  "xp": 10
+ },
+ {
+  "id": "arab-4-005",
+  "subject": "arab",
+  "year": 4,
+  "topic": "Kosa kata",
+  "difficulty": "hard",
+  "type": "mcq",
+  "question": "Apakah maksud perkataan Arab ini?  قمر",
+  "options": [
+   "buku",
+   "pintu",
+   "air",
+   "bulan"
+  ],
+  "answer": 3,
+  "explanation": "Jawapan: bulan.",
+  "xp": 10
+ }
+]
