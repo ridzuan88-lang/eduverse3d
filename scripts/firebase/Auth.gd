@@ -17,7 +17,7 @@ func _ready() -> void:
         api_key = str(cf.get_value("firebase", "api_key", ""))
         server_url = str(cf.get_value("server", "ws_url", ""))
         http_url = str(cf.get_value("server", "http_url", ""))
-    configured = api_key != "" and not api_key.begins_with("YOUR_") and http_url != "" and not http_url.contains("YOUR-")
+           configured = api_key != "" and not api_key.begins_with("YOUR_")
 
 func _post(url: String, body: String, ctype: String, cb: Callable) -> void:
     var r := HTTPRequest.new()
