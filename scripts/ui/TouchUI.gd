@@ -4,6 +4,8 @@ extends Control
 signal jump
 signal interact
 signal menu
+signal chat
+signal emote
 signal zoom(delta: float)
 
 var enabled := true:
@@ -15,6 +17,10 @@ var enabled := true:
             _cam = -1
         for b in _b.values():
             b.visible = v
+        if v and _sit:
+            _b.jump.visible = false
+            _b.run.visible = false
+            _b.emote.visible = false
         queue_redraw()
 var move := Vector2.ZERO
 var run := false
@@ -24,6 +30,7 @@ var _cam := -1
 var _o := Vector2.ZERO
 var _p := Vector2.ZERO
 var _b := {}
+var _sit := false
 
 func _ready() -> void:
     set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -32,6 +39,8 @@ func _ready() -> void:
     _mk("run", "LARI", Vector2(130, 90))
     _mk("act", "AMBIL", Vector2(170, 90))
     _mk("menu", "MENU", Vector2(120, 60))
+    _mk("chat", "SEMBANG", Vector2(130, 56))
+    _mk("emote", "EMOTE", Vector2(130, 56))
     _mk("zin", "+", Vector2(60, 60))
     _mk("zout", "-", Vector2(60, 60))
     get_viewport().size_changed.connect(_layout)
@@ -43,6 +52,13 @@ func _vs() -> Vector2:
 func set_riding(b: bool) -> void:
     _b.act.text = "TURUN" if b else "AMBIL"
     _b.jump.text = "BREK" if b else "LOMPAT"
+
+func set_sitting(b: bool) -> void:
+    _sit = b
+    _b.act.text = "BERDIRI" if b else "AMBIL"
+    _b.jump.visible = enabled and not b
+    _b.run.visible = enabled and not b
+    _b.emote.visible = enabled and not b
 
 func _mk(id: String, text: String, sz: Vector2) -> void:
     var b := UI.btn(text, sz, 22)
@@ -58,6 +74,8 @@ func _layout() -> void:
     _b.run.position = Vector2(s.x - 160, s.y - 300)
     _b.act.position = Vector2(s.x - 380, s.y - 130)
     _b.menu.position = Vector2(s.x - 140, 20)
+    _b.chat.position = Vector2(s.x - 150, 180)
+    _b.emote.position = Vector2(s.x - 150, 246)
     _b.zin.position = Vector2(s.x - 140, 100)
     _b.zout.position = Vector2(s.x - 70, 100)
 
@@ -72,6 +90,8 @@ func _press(k: String) -> void:
         "jump": jump.emit()
         "act": interact.emit()
         "menu": menu.emit()
+        "chat": chat.emit()
+        "emote": emote.emit()
         "zin": zoom.emit(-1.0)
         "zout": zoom.emit(1.0)
         "run":

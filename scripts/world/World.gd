@@ -13,6 +13,7 @@ const TELEPORTS := {
     "EduTown": Vector3(0, 2, 10), "Pulau Matematik": Vector3(90, 2, 14),
     "Kerajaan Bahasa": Vector3(-90, 2, 14), "Dunia Sains": Vector3(0, 2, -86),
     "Dunia Jawi & Arab": Vector3(0, 2, 86), "Dunia Pengembaraan": Vector3(100, 2, 116),
+    "Kawasan Rumah": Vector3(-100, 2, -84), "Portal Mini-game": Vector3(-22, 2, 42),
 }
 
 var player
@@ -28,6 +29,13 @@ var remotes := {}
 var pet: Node3D = null
 var pet_idx := -1
 var quiz_open := false
+var role := "player"
+var editing := false
+var extras: WorldExtras
+var dev: DevMode
+var sun: DirectionalLight3D
+var env_res: Environment
+var sky_mat: ProceduralSkyMaterial
 var vehicles: Array = []
 var coins: Array = []
 var pads: Array = []
@@ -65,12 +73,20 @@ func _ready() -> void:
     add_child(player)
     player.position = SPAWN
     player.setup(touch)
+    touch.chat.connect(func(): extras.open_chat())
+    touch.emote.connect(func(): extras.open_emotes())
+    extras = WorldExtras.new()
+    add_child(extras)
+    extras.setup(self)
+    dev = DevMode.new()
+    add_child(dev)
+    dev.setup(self, extras)
     var today := Time.get_date_string_from_system()
     if Game.d.last_login != today:
         Game.d.last_login = today
-        Game.d.coins = int(Game.d.coins) + 10
+        Game.add_coins(int(Economy.cfg.pickups.login_bonus), "bonus", "log masuk harian")
         Game.save()
-        _toast("Ganjaran log masuk harian: +10 syiling!")
+        _toast("Ganjaran log masuk harian: +%d syiling!" % int(Economy.cfg.pickups.login_bonus))
         Game.tone([660, 784, 988])
 
 # ---------- pembinaan dunia ----------
@@ -78,15 +94,17 @@ func _env() -> void:
     var we := WorldEnvironment.new()
     var env := Environment.new()
     var sky := Sky.new()
-    sky.sky_material = ProceduralSkyMaterial.new()
+    sky_mat = ProceduralSkyMaterial.new()
+    sky.sky_material = sky_mat
     env.sky = sky
     env.background_mode = Environment.BG_SKY
     env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
     env.ambient_light_color = Color(1, 1, 1)
     env.ambient_light_energy = 0.55
     we.environment = env
+    env_res = env
     add_child(we)
-    var sun := DirectionalLight3D.new()
+    sun = DirectionalLight3D.new()
     sun.rotation_degrees = Vector3(-55, 30, 0)
     sun.light_energy = 0.9
     add_child(sun)
@@ -180,7 +198,7 @@ func _trees() -> void:
     var leaf := Avatar.sph(1.5)
     var tm := Avatar.mat(Color("6d4c41"))
     var lm := Avatar.mat(Color("2e9e4a"))
-    var centers := [Vector2(0, 0), Vector2(90, 0), Vector2(-90, 0), Vector2(0, -100), Vector2(0, 100), Vector2(100, 100)]
+    var centers := [Vector2(0, 0), Vector2(90, 0), Vector2(-90, 0), Vector2(0, -100), Vector2(0, 100), Vector2(100, 100), Vector2(-100, -100), Vector2(-170, -150), Vector2(170, -150)]
     var n := 0
     while n < 90:
         var p := Vector2(rng.randf_range(-220, 220), rng.randf_range(-220, 220))
@@ -219,7 +237,8 @@ func _process(dt: float) -> void:
     _t += dt
     near = _find_near()
     prompt_l.text = "" if (near.is_empty() or panel != null or quiz_open) else "Tekan AMBIL: " + str(near.title)
-    player.respawn = PARKOUR_START if (player.position.x > 60.0 and player.position.z > 60.0) else SPAWN
+    if not extras.busy():
+        player.respawn = PARKOUR_START if (player.position.x > 60.0 and player.position.z > 60.0) else SPAWN
     _update_pet(dt)
     _update_extras(dt)
     if Game.online_mode:
@@ -266,23 +285,7 @@ func _update_remotes(dt: float) -> void:
             var m := Avatar.build(av)
             m.name = "Model"
             n.add_child(m)
-            var l := Label3D.new()
-            l.text = str(r.get("n", "?"))
-            l.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-            l.font_size = 48
-            l.pixel_size = 0.01
-            l.outline_size = 12
-            l.position = Vector3(0, 2.9, 0)
-            n.add_child(l)
-            var msg := Label3D.new()
-            msg.name = "Msg"
-            msg.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-            msg.font_size = 56
-            msg.pixel_size = 0.01
-            msg.outline_size = 12
-            msg.modulate = Color("fff176")
-            msg.position = Vector3(0, 3.5, 0)
-            n.add_child(msg)
+            Bubble.nameplate(n, str(r.get("n", "?")), int(r.get("lv", 1)), str(r.get("cl", "")))
             add_child(n)
             n.position = Vector3(r.x, r.y, r.z)
             remotes[id] = n
@@ -300,8 +303,10 @@ func _update_remotes(dt: float) -> void:
                 vm.name = "Veh"
                 vm.position.y = -float(VehicleScript.KINDS[vk].seat)
                 mm.add_child(vm)
-        Avatar.animate(mm, _t, 0 if vk > 0 else int(r.a))
-        n.get_node("Msg").text = str(r.get("m", ""))
+        var an := int(r.a)
+        if vk > 0:
+            an = Avatar.A_RIDE if vk == 1 else Avatar.A_DRIVE
+        Avatar.animate(mm, _t, an, dt)
     for id in remotes.keys():
         if not Net.remote.has(id):
             remotes[id].queue_free()
@@ -319,22 +324,36 @@ func _toast(msg: String) -> void:
 func on_back() -> void:
     if quiz_open:
         return
+    if editing and extras.editor != null:
+        extras.editor._exit()
+        return
     if panel != null:
         _close_panel()
     else:
         open_menu()
 
 func _interact() -> void:
-    if panel != null or quiz_open or near.is_empty():
+    if panel != null or quiz_open or near.is_empty() or editing:
         return
     match near.kind:
         "shop": open_shop()
-        "board": _panel_board()
-        "rank": _panel_rank()
+        "board": Panels.board(self, _open_panel("Papan Notis", 780))
+        "rank": Panels.leaderboard(self, _open_panel("Papan Pendahulu", 780))
+        "portal": extras.open_portal()
+        "plot": extras.open_house_panel()
+        "stand": player.stand_up()
+        "obj":
+            var res: Dictionary = near.layer.interact(near)
+            if res.has("sit"):
+                player.sit_on(res.sit, float(res.yaw), bool(res.lie))
         "quiz": _panel_quiz(str(near.arg), str(near.title))
         "chest": _chest()
         "vehicle": _mount(near.node)
-        "dismount": _dismount()
+        "dismount":
+            if extras.minigame is RaceGame:
+                _toast("Tekan KELUAR untuk menamatkan lumba")
+            else:
+                _dismount()
 
 func _open_panel(title: String, w := 760, side := false) -> VBoxContainer:
     _close_panel()
@@ -387,18 +406,18 @@ func _close_panel() -> void:
         panel = null
         _sanitize_avatar()
         Game.save()
-    if touch != null and not quiz_open:
+    if touch != null and not quiz_open and not editing:
         touch.enabled = true
 
 func _sanitize_avatar() -> void:
-    for k in ["hat", "pack", "pet"]:
+    for k in ["hat", "pack", "pet", "acc"]:
         if not Game.d.owned.has(k + str(int(Game.d.avatar[k]))):
             Game.d.avatar[k] = 0
     if player:
         player.rebuild_model()
 
 func open_shop() -> void:
-    var v := _open_panel("Kedai Avatar & Haiwan", 560, true)
+    var v := _open_panel("Kedai Avatar & Haiwan", 600, true)
     coin_l = UI.lbl("", 22, Color("ffd54f"))
     v.add_child(coin_l)
     _avatar_row(v, "Jantina", "gender", ["Lelaki", "Perempuan"], [], "")
@@ -406,6 +425,10 @@ func open_shop() -> void:
     _avatar_row(v, "Baju", "shirt", ["Merah", "Biru", "Hijau", "Kuning", "Ungu", "Oren"], [], "")
     _avatar_row(v, "Rambut", "hair", ["Hitam", "Coklat", "Kuning", "Merah", "Kelabu"], [], "")
     _avatar_row(v, "Topi", "hat", Avatar.HATS, Avatar.HAT_PRICE, "hat")
+    _avatar_row(v, "Muka", "face", Avatar.FACES, [], "")
+    _avatar_row(v, "Gaya rambut", "style", Avatar.STYLES, [], "")
+    _avatar_row(v, "Kasut", "shoes", Avatar.SHOES, [], "")
+    _avatar_row(v, "Aksesori", "acc", Avatar.ACCS, Avatar.ACC_PRICE, "acc")
     _avatar_row(v, "Beg", "pack", Avatar.PACKS, Avatar.PACK_PRICE, "pack")
     _avatar_row(v, "Haiwan", "pet", Avatar.PETS, Avatar.PET_PRICE, "pet")
     _add_close(v, "Siap")
@@ -450,8 +473,7 @@ func _row_refresh(val: Label, act: Button, key: String, names: Array, prices: Ar
 func _row_buy(val: Label, act: Button, key: String, names: Array, prices: Array, prefix: String) -> void:
     var i := int(Game.d.avatar[key])
     var cost := int(prices[i])
-    if int(Game.d.coins) >= cost:
-        Game.d.coins = int(Game.d.coins) - cost
+    if Game.spend(cost, "avatar " + prefix + str(i)):
         Game.d.owned.append(prefix + str(i))
         Game.save()
         Game.tone([660, 880, 990])
@@ -489,80 +511,23 @@ func _quiz_closed() -> void:
     hud.visible = true
     touch.enabled = true
 
-func _panel_board() -> void:
-    var v := _open_panel("Papan Misi")
-    var dl := Game.daily()
-    var c := mini(int(dl.correct), 10)
-    v.add_child(UI.lbl("Misi harian: jawab 10 soalan dengan betul  (%d/10)" % c, 22))
-    var claim := UI.btn("Tuntut 20 syiling", Vector2(300, 52))
-    claim.disabled = c < 10 or bool(dl.claimed)
-    claim.pressed.connect(_claim_daily.bind(claim))
-    v.add_child(claim)
-    v.add_child(UI.lbl("Tahap %d  |  XP %d  |  Kemenangan %d" % [Game.level(), int(Game.d.xp), int(Game.d.wins)], 22, Color("ffd54f")))
-    v.add_child(UI.lbl("Pencapaian", 24))
-    var ach := [["Kemenangan Pertama", int(Game.d.wins) >= 1], ["Kumpul 100 XP", int(Game.d.xp) >= 100], ["Simpan 100 syiling", int(Game.d.coins) >= 100]]
-    for a in ach:
-        v.add_child(UI.lbl(("[x] " if a[1] else "[ ] ") + str(a[0]), 20))
-    _add_close(v)
-
-func _claim_daily(btn: Button) -> void:
-    var dl := Game.daily()
-    if bool(dl.claimed) or int(dl.correct) < 10:
-        return
-    dl.claimed = true
-    Game.d.coins = int(Game.d.coins) + 20
-    Game.save()
-    btn.disabled = true
-    Game.tone([660, 784, 988])
-
 func _chest() -> void:
     var dl := Game.daily()
     if bool(dl.chest):
         _toast("Peti sudah dibuka hari ini. Datang semula esok!")
         return
     dl.chest = true
-    Game.d.coins = int(Game.d.coins) + 15
+    var cc := int(Economy.cfg.pickups.chest_coins)
+    Game.add_coins(cc, "peti", "parkour")
     Game.save()
     Game.tone([660, 784, 988, 1175])
-    _toast("Peti harta: +15 syiling!")
-
-func _panel_rank() -> void:
-    var v := _open_panel("Papan Pendahulu")
-    v.add_child(UI.lbl("Anda: %s  -  Tahap %d  -  %d XP" % [Game.d.name, Game.level(), int(Game.d.xp)], 22, Color("ffd54f")))
-    if not Game.online_mode or Auth.id_token == "":
-        var l := UI.lbl("Log masuk dalam Mod Dalam Talian untuk melihat kedudukan sah. Skor luar talian tidak masuk papan pendahulu sehingga disahkan oleh pelayan.", 20)
-        l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-        v.add_child(l)
-        _add_close(v)
-        return
-    var status := UI.lbl("Memuatkan...", 20)
-    v.add_child(status)
-    _add_close(v)
-    var r := HTTPRequest.new()
-    add_child(r)
-    r.request_completed.connect(_rank_done.bind(r, status, v))
-    r.request(Auth.http_url + "/leaderboard", ["Authorization: Bearer " + Auth.id_token])
-
-func _rank_done(res: int, code: int, _h: PackedStringArray, body: PackedByteArray, r: HTTPRequest, status: Label, v: VBoxContainer) -> void:
-    r.queue_free()
-    if not is_instance_valid(status):
-        return
-    var j = JSON.parse_string(body.get_string_from_utf8())
-    if res != HTTPRequest.RESULT_SUCCESS or code != 200 or not (j is Dictionary):
-        status.text = "Gagal memuatkan papan pendahulu."
-        return
-    status.text = "Top 20 (XP disahkan pelayan)"
-    var i := 1
-    for e in j.get("list", []):
-        var row := UI.lbl("%d. %s  -  Tahap %d  -  %d XP" % [i, e.get("name", "?"), int(e.get("level", 1)), int(e.get("xp", 0))], 19)
-        v.add_child(row)
-        v.move_child(row, v.get_child_count() - 2)
-        i += 1
+    _toast("Peti harta: +%d syiling!" % cc)
 
 func open_menu() -> void:
-    if panel != null or quiz_open:
+    if panel != null or quiz_open or editing:
         return
-    var v := _open_panel("Menu", 700)
+    var v := _open_panel("Menu", 760)
+    var body := Panels.scroll(v, 430)
     var vol := HSlider.new()
     vol.min_value = 0.0
     vol.max_value = 1.0
@@ -573,7 +538,7 @@ func open_menu() -> void:
     var hv := HBoxContainer.new()
     hv.add_child(UI.lbl("Bunyi (0 = senyap)  ", 20))
     hv.add_child(vol)
-    v.add_child(hv)
+    body.add_child(hv)
     var ob := OptionButton.new()
     for i in range(1, 7):
         ob.add_item("Darjah %d" % i)
@@ -583,17 +548,46 @@ func open_menu() -> void:
     var hy := HBoxContainer.new()
     hy.add_child(UI.lbl("Tahun persekolahan  ", 20))
     hy.add_child(ob)
-    v.add_child(hy)
-    v.add_child(UI.lbl("Pergi ke:", 20))
+    body.add_child(hy)
+    var row := HBoxContainer.new()
+    var pr := UI.btn("Profil", Vector2(150, 48), 18)
+    pr.pressed.connect(func():
+        _close_panel()
+        Panels.profile(self, _open_panel("Profil Pemain", 760)))
+    row.add_child(pr)
+    var lb := UI.btn("Kedudukan", Vector2(170, 48), 18)
+    lb.pressed.connect(func():
+        _close_panel()
+        Panels.leaderboard(self, _open_panel("Papan Pendahulu", 780)))
+    row.add_child(lb)
+    var cl := UI.btn("Kelas", Vector2(130, 48), 18)
+    cl.pressed.connect(func():
+        _close_panel()
+        Panels.class_panel(self, _open_panel("Kelas", 720)))
+    row.add_child(cl)
+    var hb2 := UI.btn("Rumah", Vector2(130, 48), 18)
+    hb2.pressed.connect(func():
+        _close_panel()
+        extras.open_house_panel())
+    row.add_child(hb2)
+    if role in ["super_admin", "world_dev", "moderator"]:
+        var ad := UI.btn("Pentadbir", Vector2(160, 48), 18)
+        ad.pressed.connect(func():
+            _close_panel()
+            Panels.admin(self, _open_panel("Pentadbir", 780)))
+        row.add_child(ad)
+    body.add_child(row)
+    body.add_child(UI.lbl("Pergi ke:", 20))
     var grid := GridContainer.new()
     grid.columns = 3
-    v.add_child(grid)
+    body.add_child(grid)
     for k in TELEPORTS:
-        var b := UI.btn(k, Vector2(210, 48), 18)
+        var b := UI.btn(k, Vector2(220, 48), 17)
         b.pressed.connect(_teleport.bind(TELEPORTS[k]))
         grid.add_child(b)
+    body.add_child(UI.lbl("Tenaga: XP %d (disahkan %d, luar talian %d)   Syiling %d" % [int(Game.d.xp), int(Game.d.ver_xp), int(Game.d.off_xp), int(Game.d.coins)], 17, Color("ffd54f")))
     if Game.online_mode:
-        v.add_child(UI.lbl("Dalam talian: %s | bilik: %s | pemain: %d | sync tertunda: %d" % [Net.status, Net.room, Net.remote.size() + 1, Game.d.queue.size()], 18, Color("a5d6a7")))
+        body.add_child(UI.lbl("Dalam talian: %s | bilik: %s | pemain: %d | sync tertunda: %d" % [Net.status, Net.room, Net.remote.size() + 1, Game.d.queue.size()], 17, Color("a5d6a7")))
         var hr := HBoxContainer.new()
         var code := LineEdit.new()
         code.placeholder_text = "Kod bilik peribadi (3-10 huruf/nombor)"
@@ -606,16 +600,12 @@ func open_menu() -> void:
         var pb := UI.btn("Bilik awam", Vector2(150, 46), 18)
         pb.pressed.connect(_join_room.bind(null))
         hr.add_child(pb)
-        v.add_child(hr)
-        var he := HBoxContainer.new()
-        for i in Net.PRESETS.size():
-            var eb := UI.btn(Net.PRESETS[i], Vector2(100, 44), 16)
-            eb.pressed.connect(Net.send_emote.bind(i))
-            he.add_child(eb)
-        v.add_child(he)
+        body.add_child(hr)
         var sb := UI.btn("Segerak sekarang", Vector2(240, 46), 18)
         sb.pressed.connect(Sync.sync_now)
-        v.add_child(sb)
+        body.add_child(sb)
+    else:
+        body.add_child(Panels.wl("Mod luar talian: sembang, kedudukan sah dan pemain lain tidak tersedia. Syiling & XP disimpan setempat (tidak masuk kedudukan).", 16, Color("ffcc80"), 700))
     var hb := HBoxContainer.new()
     var cb := UI.btn("Sambung main", Vector2(220, 52))
     cb.pressed.connect(_close_panel)
@@ -761,8 +751,17 @@ func _pads() -> void:
 func _find_near() -> Dictionary:
     if player.riding != null:
         return {"kind": "dismount", "title": "Turun dari kenderaan"}
+    if player.sitting:
+        return {"kind": "stand", "title": "Berdiri"}
+    if editing or extras.minigame != null:
+        return {}
     var best := {}
     var bd := 99.0
+    for s in extras.dynamic_spots():
+        var dd: float = player.position.distance_to(s.pos)
+        if dd < 3.2 and dd < bd:
+            bd = dd
+            best = s
     for s in spots:
         var d: float = player.position.distance_to(s.pos)
         if d < 5.0 and d < bd:
@@ -810,11 +809,16 @@ func _update_extras(dt: float) -> void:
             if c.t <= 0.0:
                 n.visible = true
         elif Vector2(n.position.x, n.position.z).distance_to(Vector2(pp.x, pp.z)) < 1.8 and absf(n.position.y - pp.y) < 3.0:
-            c.t = 45.0
-            n.visible = false
-            Game.d.coins = int(Game.d.coins) + 1
-            _save_t = 3.0
-            Game.tone([988, 1319], 0.07)
+            var got := Economy.pickup_coin()
+            if got > 0:
+                c.t = 45.0
+                n.visible = false
+                Game.add_coins(got, "kutip", "syiling dunia")
+                _save_t = 3.0
+                Game.tone([988, 1319], 0.07)
+            elif c.t == 0.0:
+                c.t = 5.0   # elak ulang toast
+                _toast("Had kutipan syiling harian dicapai. Cuba kuiz & mini-game!")
     if _save_t > 0.0:
         _save_t -= dt
         if _save_t <= 0.0:
@@ -826,7 +830,7 @@ func _update_extras(dt: float) -> void:
                 Game.tone([440, 660, 880], 0.08)
                 break
     var zones := {"EduTown": Vector2(0, 0), "Pulau Matematik": Vector2(90, 0), "Kerajaan Bahasa": Vector2(-90, 0),
-        "Dunia Sains": Vector2(0, -100), "Dunia Jawi & Arab": Vector2(0, 100), "Dunia Pengembaraan": Vector2(100, 100)}
+        "Dunia Sains": Vector2(0, -100), "Dunia Jawi & Arab": Vector2(0, 100), "Dunia Pengembaraan": Vector2(100, 100), "Kawasan Rumah": Vector2(-100, -100)}
     var here := ""
     for k in zones:
         if Vector2(pp.x, pp.z).distance_to(zones[k]) < 38.0:

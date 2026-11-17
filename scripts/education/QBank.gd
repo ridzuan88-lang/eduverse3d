@@ -36,4 +36,13 @@ func pick(subject: String, year: int, diff: int, n: int) -> Array:
             pool = f
     pool = pool.duplicate()
     pool.shuffle()
-    return pool.slice(0, n)
+    # Utamakan soalan yang belum dijawab betul dalam tempoh cooldown (elak ganjaran ternak soalan sama)
+    var fresh: Array = []
+    var stale: Array = []
+    for q in pool:
+        if Economy.is_repeat(str(q.id)):
+            stale.append(q)
+        else:
+            fresh.append(q)
+    fresh.append_array(stale)
+    return fresh.slice(0, n)

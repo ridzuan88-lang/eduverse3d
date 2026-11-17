@@ -1,0 +1,7 @@
+{
+  "indexes": [
+    { "collectionGroup": "users", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "year", "order": "ASCENDING" }, { "fieldPath": "xp", "order": "DESCENDING" } ] },
+    { "collectionGroup": "users", "queryScope": "COLLECTION", "fields": [ { "fieldPath": "class", "order": "ASCENDING" }, { "fieldPath": "xp", "order": "DESCENDING" } ] }
+  ],
+  "fieldOverrides": []
+}

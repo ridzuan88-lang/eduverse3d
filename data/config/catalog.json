@@ -1,0 +1,718 @@
+{
+ "grid": 1.0,
+ "plot_half": 12,
+ "max_items": 150,
+ "scale_min": 0.5,
+ "scale_max": 2.0,
+ "house_items": [
+  {
+   "id": "bed1",
+   "name": "Katil",
+   "cat": "furniture",
+   "price": 40,
+   "size": [
+    2.0,
+    0.7,
+    3.0
+   ],
+   "color": "#90caf9",
+   "kind": "bed"
+  },
+  {
+   "id": "chair1",
+   "name": "Kerusi",
+   "cat": "furniture",
+   "price": 15,
+   "size": [
+    0.9,
+    1.0,
+    0.9
+   ],
+   "color": "#a1887f",
+   "kind": "seat"
+  },
+  {
+   "id": "table1",
+   "name": "Meja",
+   "cat": "furniture",
+   "price": 20,
+   "size": [
+    2.0,
+    0.9,
+    1.2
+   ],
+   "color": "#8d6e63",
+   "kind": "deco"
+  },
+  {
+   "id": "sofa1",
+   "name": "Sofa",
+   "cat": "furniture",
+   "price": 45,
+   "size": [
+    2.6,
+    0.9,
+    1.1
+   ],
+   "color": "#ef5350",
+   "kind": "seat"
+  },
+  {
+   "id": "bench1",
+   "name": "Bangku",
+   "cat": "furniture",
+   "price": 18,
+   "size": [
+    2.0,
+    0.8,
+    0.7
+   ],
+   "color": "#795548",
+   "kind": "seat"
+  },
+  {
+   "id": "shelf1",
+   "name": "Rak Buku",
+   "cat": "furniture",
+   "price": 25,
+   "size": [
+    1.8,
+    2.0,
+    0.5
+   ],
+   "color": "#6d4c41",
+   "kind": "deco"
+  },
+  {
+   "id": "tv1",
+   "name": "Televisyen",
+   "cat": "furniture",
+   "price": 50,
+   "size": [
+    1.6,
+    1.0,
+    0.2
+   ],
+   "color": "#263238",
+   "kind": "deco"
+  },
+  {
+   "id": "lamp1",
+   "name": "Lampu Berdiri",
+   "cat": "lighting",
+   "price": 15,
+   "size": [
+    0.5,
+    2.2,
+    0.5
+   ],
+   "color": "#fff176",
+   "kind": "light"
+  },
+  {
+   "id": "lamp2",
+   "name": "Lampu Meja",
+   "cat": "lighting",
+   "price": 10,
+   "size": [
+    0.4,
+    0.6,
+    0.4
+   ],
+   "color": "#ffe082",
+   "kind": "light"
+  },
+  {
+   "id": "wall1",
+   "name": "Dinding",
+   "cat": "structure",
+   "price": 8,
+   "size": [
+    3.0,
+    2.6,
+    0.3
+   ],
+   "color": "#fff3e0",
+   "kind": "wall"
+  },
+  {
+   "id": "door1",
+   "name": "Pintu",
+   "cat": "structure",
+   "price": 12,
+   "size": [
+    1.2,
+    2.3,
+    0.25
+   ],
+   "color": "#5d4037",
+   "kind": "door"
+  },
+  {
+   "id": "window1",
+   "name": "Tingkap",
+   "cat": "structure",
+   "price": 10,
+   "size": [
+    1.4,
+    1.2,
+    0.2
+   ],
+   "color": "#81d4fa",
+   "kind": "deco"
+  },
+  {
+   "id": "roof1",
+   "name": "Bumbung Merah",
+   "cat": "structure",
+   "price": 30,
+   "size": [
+    3.4,
+    1.2,
+    3.4
+   ],
+   "color": "#c62828",
+   "kind": "roof"
+  },
+  {
+   "id": "roof2",
+   "name": "Bumbung Biru",
+   "cat": "structure",
+   "price": 30,
+   "size": [
+    3.4,
+    1.2,
+    3.4
+   ],
+   "color": "#1565c0",
+   "kind": "roof"
+  },
+  {
+   "id": "floor1",
+   "name": "Lantai Kayu",
+   "cat": "structure",
+   "price": 6,
+   "size": [
+    3.0,
+    0.1,
+    3.0
+   ],
+   "color": "#d7ccc8",
+   "kind": "floor"
+  },
+  {
+   "id": "tree1",
+   "name": "Pokok",
+   "cat": "garden",
+   "price": 12,
+   "size": [
+    1.8,
+    3.6,
+    1.8
+   ],
+   "color": "#2e9e4a",
+   "kind": "deco"
+  },
+  {
+   "id": "flower1",
+   "name": "Bunga",
+   "cat": "garden",
+   "price": 5,
+   "size": [
+    0.6,
+    0.5,
+    0.6
+   ],
+   "color": "#f06292",
+   "kind": "deco"
+  },
+  {
+   "id": "bush1",
+   "name": "Semak",
+   "cat": "garden",
+   "price": 6,
+   "size": [
+    1.2,
+    0.9,
+    1.2
+   ],
+   "color": "#388e3c",
+   "kind": "deco"
+  },
+  {
+   "id": "fence1",
+   "name": "Pagar",
+   "cat": "garden",
+   "price": 5,
+   "size": [
+    2.0,
+    1.0,
+    0.15
+   ],
+   "color": "#efebe9",
+   "kind": "wall"
+  },
+  {
+   "id": "pool1",
+   "name": "Kolam Renang",
+   "cat": "garden",
+   "price": 90,
+   "size": [
+    5.0,
+    0.3,
+    3.0
+   ],
+   "color": "#4fc3f7",
+   "kind": "pool",
+   "pool": true
+  },
+  {
+   "id": "rock1",
+   "name": "Batu Hias",
+   "cat": "garden",
+   "price": 4,
+   "size": [
+    1.0,
+    0.7,
+    1.0
+   ],
+   "color": "#9e9e9e",
+   "kind": "deco"
+  },
+  {
+   "id": "rug1",
+   "name": "Permaidani",
+   "cat": "decor",
+   "price": 12,
+   "size": [
+    2.4,
+    0.05,
+    1.6
+   ],
+   "color": "#7e57c2",
+   "kind": "floor"
+  },
+  {
+   "id": "plant1",
+   "name": "Pasu Bunga",
+   "cat": "decor",
+   "price": 8,
+   "size": [
+    0.5,
+    0.9,
+    0.5
+   ],
+   "color": "#66bb6a",
+   "kind": "deco"
+  },
+  {
+   "id": "pic1",
+   "name": "Gambar Dinding",
+   "cat": "decor",
+   "price": 8,
+   "size": [
+    1.0,
+    0.8,
+    0.1
+   ],
+   "color": "#ffb74d",
+   "kind": "deco"
+  }
+ ],
+ "dev_objects": [
+  {
+   "id": "nat_tree0",
+   "name": "Pokok Besar",
+   "cat": "Alam",
+   "size": [
+    2.0,
+    4.0,
+    2.0
+   ],
+   "color": "#2e7d32",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_tree1",
+   "name": "Pokok Kecil",
+   "cat": "Alam",
+   "size": [
+    2.0,
+    4.0,
+    2.0
+   ],
+   "color": "#43a047",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_tree2",
+   "name": "Pokok Palma",
+   "cat": "Alam",
+   "size": [
+    2.0,
+    4.0,
+    2.0
+   ],
+   "color": "#558b2f",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_grass",
+   "name": "Rumput",
+   "cat": "Alam",
+   "size": [
+    2.0,
+    0.4,
+    2.0
+   ],
+   "color": "#7cb342",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_flower",
+   "name": "Bunga",
+   "cat": "Alam",
+   "size": [
+    0.7,
+    0.6,
+    0.7
+   ],
+   "color": "#ec407a",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_rock",
+   "name": "Batu",
+   "cat": "Alam",
+   "size": [
+    1.6,
+    1.2,
+    1.6
+   ],
+   "color": "#9e9e9e",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_hill",
+   "name": "Bukit",
+   "cat": "Alam",
+   "size": [
+    14.0,
+    4.0,
+    14.0
+   ],
+   "color": "#7cb342",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_lake",
+   "name": "Tasik",
+   "cat": "Alam",
+   "size": [
+    16.0,
+    0.2,
+    16.0
+   ],
+   "color": "#4fc3f7",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_river",
+   "name": "Sungai",
+   "cat": "Alam",
+   "size": [
+    6.0,
+    0.2,
+    30.0
+   ],
+   "color": "#29b6f6",
+   "kind": "deco"
+  },
+  {
+   "id": "nat_mountain",
+   "name": "Gunung",
+   "cat": "Alam",
+   "size": [
+    30.0,
+    18.0,
+    30.0
+   ],
+   "color": "#8d6e63",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_house",
+   "name": "Rumah",
+   "cat": "Bangunan",
+   "size": [
+    8.0,
+    5.0,
+    8.0
+   ],
+   "color": "#ffcc80",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_school",
+   "name": "Sekolah",
+   "cat": "Bangunan",
+   "size": [
+    16.0,
+    7.0,
+    10.0
+   ],
+   "color": "#64b5f6",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_shop",
+   "name": "Kedai",
+   "cat": "Bangunan",
+   "size": [
+    8.0,
+    5.0,
+    7.0
+   ],
+   "color": "#ba68c8",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_resto",
+   "name": "Restoran",
+   "cat": "Bangunan",
+   "size": [
+    9.0,
+    5.0,
+    8.0
+   ],
+   "color": "#ff8a65",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_park",
+   "name": "Taman",
+   "cat": "Bangunan",
+   "size": [
+    16.0,
+    0.2,
+    16.0
+   ],
+   "color": "#aed581",
+   "kind": "deco"
+  },
+  {
+   "id": "bld_playground",
+   "name": "Taman Permainan",
+   "cat": "Bangunan",
+   "size": [
+    10.0,
+    2.0,
+    10.0
+   ],
+   "color": "#ffd54f",
+   "kind": "deco"
+  },
+  {
+   "id": "road_straight",
+   "name": "Jalan Lurus",
+   "cat": "Jalan",
+   "size": [
+    6.0,
+    0.1,
+    20.0
+   ],
+   "color": "#616161",
+   "kind": "deco"
+  },
+  {
+   "id": "road_junction",
+   "name": "Persimpangan",
+   "cat": "Jalan",
+   "size": [
+    12.0,
+    0.1,
+    12.0
+   ],
+   "color": "#616161",
+   "kind": "deco"
+  },
+  {
+   "id": "road_round",
+   "name": "Bulatan",
+   "cat": "Jalan",
+   "size": [
+    16.0,
+    0.1,
+    16.0
+   ],
+   "color": "#616161",
+   "kind": "deco"
+  },
+  {
+   "id": "side_walk",
+   "name": "Kaki Lima",
+   "cat": "Jalan",
+   "size": [
+    2.0,
+    0.2,
+    20.0
+   ],
+   "color": "#bdbdbd",
+   "kind": "deco"
+  },
+  {
+   "id": "bridge",
+   "name": "Jambatan",
+   "cat": "Jalan",
+   "size": [
+    6.0,
+    0.6,
+    18.0
+   ],
+   "color": "#8d6e63",
+   "kind": "deco"
+  },
+  {
+   "id": "sign_stop",
+   "name": "Papan Tanda",
+   "cat": "Jalan",
+   "size": [
+    0.3,
+    3.0,
+    0.3
+   ],
+   "color": "#e53935",
+   "kind": "deco"
+  },
+  {
+   "id": "traffic_light",
+   "name": "Lampu Isyarat",
+   "cat": "Jalan",
+   "size": [
+    0.5,
+    4.0,
+    0.5
+   ],
+   "color": "#43a047",
+   "kind": "light"
+  },
+  {
+   "id": "street_light",
+   "name": "Lampu Jalan",
+   "cat": "Jalan",
+   "size": [
+    0.4,
+    5.0,
+    0.4
+   ],
+   "color": "#ffee58",
+   "kind": "light"
+  },
+  {
+   "id": "furn_bench",
+   "name": "Bangku Taman",
+   "cat": "Perabot",
+   "size": [
+    2.0,
+    0.8,
+    0.7
+   ],
+   "color": "#795548",
+   "kind": "seat"
+  },
+  {
+   "id": "furn_table",
+   "name": "Meja",
+   "cat": "Perabot",
+   "size": [
+    2.0,
+    0.9,
+    1.2
+   ],
+   "color": "#8d6e63",
+   "kind": "deco"
+  },
+  {
+   "id": "edu_board",
+   "name": "Papan Hitam",
+   "cat": "Pendidikan",
+   "size": [
+    3.0,
+    2.0,
+    0.2
+   ],
+   "color": "#2e7d32",
+   "kind": "deco"
+  },
+  {
+   "id": "edu_globe",
+   "name": "Glob",
+   "cat": "Pendidikan",
+   "size": [
+    1.2,
+    1.6,
+    1.2
+   ],
+   "color": "#42a5f5",
+   "kind": "deco"
+  },
+  {
+   "id": "mg_target",
+   "name": "Sasaran",
+   "cat": "Mini-game",
+   "size": [
+    1.2,
+    1.2,
+    0.2
+   ],
+   "color": "#ef5350",
+   "kind": "deco"
+  },
+  {
+   "id": "mg_checkpoint",
+   "name": "Pusat Semak Lumba",
+   "cat": "Mini-game",
+   "size": [
+    8.0,
+    4.0,
+    0.5
+   ],
+   "color": "#00e676",
+   "kind": "deco"
+  },
+  {
+   "id": "deco_balloon",
+   "name": "Belon",
+   "cat": "Hiasan",
+   "size": [
+    0.8,
+    1.0,
+    0.8
+   ],
+   "color": "#f06292",
+   "kind": "deco"
+  },
+  {
+   "id": "deco_flag",
+   "name": "Bendera",
+   "cat": "Hiasan",
+   "size": [
+    0.2,
+    3.0,
+    1.2
+   ],
+   "color": "#fdd835",
+   "kind": "deco"
+  }
+ ],
+ "pool_zone": {
+  "x": [
+   -12,
+   12
+  ],
+  "z": [
+   4,
+   12
+  ]
+ }
+}

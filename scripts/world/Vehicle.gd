@@ -1,3 +1,4 @@
+class_name Vehicle
 extends CharacterBody3D
 # Kenderaan boleh dipandu: 1 = motosikal, 2 = kereta, 3 = bas terbuka.
 
@@ -5,6 +6,8 @@ const KINDS := {
     1: {"name": "Motosikal", "size": Vector3(0.7, 0.9, 1.8), "seat": 0.55, "max": 20.0, "acc": 14.0, "turn": 2.2, "reach": 3.2},
     2: {"name": "Kereta", "size": Vector3(2.0, 0.7, 3.8), "seat": 0.6, "max": 24.0, "acc": 12.0, "turn": 1.8, "reach": 4.2},
     3: {"name": "Bas", "size": Vector3(2.6, 0.9, 8.0), "seat": 1.0, "max": 15.0, "acc": 7.0, "turn": 1.0, "reach": 6.5},
+    4: {"name": "Go-kart", "size": Vector3(1.3, 0.5, 2.0), "seat": 0.4, "max": 21.0, "acc": 16.0, "turn": 2.6, "reach": 3.0},
+    5: {"name": "Kenderaan Fantasi", "size": Vector3(1.8, 0.6, 2.6), "seat": 0.75, "max": 28.0, "acc": 15.0, "turn": 2.0, "reach": 3.5},
 }
 
 var kind := 1
@@ -17,6 +20,7 @@ var reach := 3.0
 var label_name := ""
 var spawn := Vector3.ZERO
 var _max := 20.0
+var max_speed := 20.0   # boleh diubah (AI lumba / had laju)
 var _acc := 12.0
 var _turn := 2.0
 
@@ -58,6 +62,19 @@ static func build_model(k: int) -> Node3D:
             for sx in [-1.3, 1.3]:
                 for sz in [-2.8, 2.8]:
                     _wheel(r, Vector3(sx, 0.5, sz), 0.5, 0.3)
+        4:
+            Avatar.part(r, Avatar.box(Vector3(1.2, 0.25, 1.9)), Color("43a047"), Vector3(0, 0.3, 0))
+            Avatar.part(r, Avatar.box(Vector3(0.9, 0.3, 0.1)), Color("1b5e20"), Vector3(0, 0.6, -0.8))
+            Avatar.part(r, Avatar.box(Vector3(0.5, 0.06, 0.06)), Color("212121"), Vector3(0, 0.75, 0.45))
+            for sx in [-0.62, 0.62]:
+                for sz in [-0.7, 0.7]:
+                    _wheel(r, Vector3(sx, 0.22, sz), 0.22, 0.18)
+        5:
+            Avatar.part(r, Avatar.sph(0.9), Color("ab47bc"), Vector3(0, 0.7, 0)).scale = Vector3(1.0, 0.45, 1.4)
+            Avatar.part(r, Avatar.sph(0.5), Color("e1bee7"), Vector3(0, 0.95, 0.2)).scale = Vector3(1.0, 0.6, 1.0)
+            Avatar.part(r, Avatar.cyl(0.7, 0.7, 0.06), Color("00e5ff"), Vector3(0, 0.2, 0))
+            for sx in [-0.8, 0.8]:
+                Avatar.part(r, Avatar.box(Vector3(0.7, 0.05, 0.9)), Color("7b1fa2"), Vector3(sx, 0.75, -0.5))
     return r
 
 func setup(k: int, pos: Vector3, yaw := 0.0) -> void:
@@ -87,6 +104,7 @@ func setup(k: int, pos: Vector3, yaw := 0.0) -> void:
     l.pixel_size = 0.01
     l.outline_size = 12
     l.position = Vector3(0, 4.2 if k == 3 else 2.4, 0)
+    max_speed = _max
     add_child(l)
 
 func _physics_process(dt: float) -> void:
@@ -99,7 +117,7 @@ func _physics_process(dt: float) -> void:
     if brake_t > 0.0:
         speed = move_toward(speed, 0.0, 40.0 * dt)
     elif absf(thr) > 0.05:
-        speed = clampf(speed + thr * _acc * dt, -_max * 0.4, _max)
+        speed = clampf(speed + thr * _acc * dt, -max_speed * 0.4, max_speed)
     else:
         speed = move_toward(speed, 0.0, 6.0 * dt)
     if absf(speed) > 0.5:

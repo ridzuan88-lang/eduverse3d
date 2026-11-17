@@ -15,7 +15,7 @@ var i := 0
 var score := 0
 var ai_score := 0
 var correct := 0
-var xp_sum := 0
+var results: Array = []
 var left := 0.0
 var running := false
 var ai_time := 5.0
@@ -201,10 +201,10 @@ func _finish_q(right: bool, k: int) -> void:
     else:
         for b in scr_buttons:
             b.disabled = true
+    results.append({"id": str(q.id), "diff": str(q.difficulty), "right": right, "secs": elapsed})
     var pts := 0
     if right:
         correct += 1
-        xp_sum += int(q.xp)
         pts = 10 + (5 if elapsed < ai_time else 0)
         score += pts
         Game.tone([660, 880])
@@ -231,9 +231,10 @@ func _next() -> void:
 
 func _end() -> void:
     var win := score > ai_score
-    var xp := xp_sum + (20 if win else 0)
-    var coins := correct * 2 + (5 if win else 0)
-    Game.add_result(subject, year, correct, qs.size(), xp, coins, win)
+    var rw := Economy.quiz_rewards(results, win)
+    var xp := int(rw.xp)
+    var coins := int(rw.coins)
+    Game.add_result(subject, year, results, win, rw)
     Game.tone([523, 659, 784, 1047] if win else [392, 330])
     for c in box.get_children():
         c.queue_free()
@@ -242,6 +243,21 @@ func _end() -> void:
     box.add_child(UI.lbl("Betul: %d / %d" % [correct, qs.size()], 30))
     box.add_child(UI.lbl("Skor anda %d  -  Robot %d" % [score, ai_score], 30))
     box.add_child(UI.lbl("Ganjaran: +%d XP   +%d syiling" % [xp, coins], 30, Color("a5d6a7")))
+    var notes: Array = []
+    if bool(rw.perfect):
+        notes.append("Kuiz sempurna! Bonus tambahan diterima.")
+    if int(rw.repeats) > 0:
+        notes.append("%d soalan sama dalam 24 jam: tiada ganjaran untuknya." % int(rw.repeats))
+    if bool(rw.capped):
+        notes.append("Had syiling kuiz harian dicapai.")
+    if Game.is_verified_session():
+        notes.append("Dalam talian: pelayan akan mengesahkan XP anda untuk kedudukan.")
+    else:
+        notes.append("Luar talian: XP ini tidak masuk kedudukan sah.")
+    var nl := UI.lbl("\n".join(notes), 18, Color("ffe082"))
+    nl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    nl.custom_minimum_size.x = 1000
+    box.add_child(nl)
     var cb := UI.btn("Tutup", Vector2(260, 60), 26)
     cb.pressed.connect(_close)
     box.add_child(cb)

@@ -10,10 +10,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://scripts/Game.gd"
+Economy="*res://scripts/Economy.gd"
 QBank="*res://scripts/education/QBank.gd"
 Auth="*res://scripts/firebase/Auth.gd"
 Net="*res://scripts/multiplayer/Net.gd"
 Sync="*res://scripts/synchronisation/Sync.gd"
+Api="*res://scripts/net/Api.gd"
 
 [display]
 

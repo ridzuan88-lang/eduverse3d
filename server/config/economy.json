@@ -1,0 +1,28 @@
+{
+  "_note": "Semua ganjaran boleh diubah di sini. Salinan untuk pelayan: server/config/economy.json (jalankan tools/sync_config.sh).",
+  "coins_per_correct": { "easy": 5, "medium": 10, "hard": 15 },
+  "xp_per_correct": { "easy": 10, "medium": 15, "hard": 20 },
+  "quiz_complete": { "coins": 20, "xp": 10 },
+  "perfect_quiz": { "coins": 30, "xp": 20 },
+  "win_vs_robot": { "coins": 5, "xp": 10 },
+  "speed_bonus": { "avg_seconds_below": 8.0, "xp": 5 },
+  "daily_mission": { "correct_needed": 10, "coins": 25 },
+  "weekly_mission": { "correct_needed": 60, "coins": 100 },
+  "weekly_coverage_bonus": { "subjects_needed": 4, "xp": 50 },
+  "minigame": {
+    "target_participation_coins": 5,
+    "target_win_coins": 20,
+    "race_coins": [30, 20, 10, 5],
+    "race_xp": [10, 6, 3, 0]
+  },
+  "pickups": { "coin_value": 1, "chest_coins": 15, "login_bonus": 10 },
+  "caps": {
+    "daily_quiz_coins": 400,
+    "daily_pickup_coins": 60,
+    "daily_minigame_coins": 150,
+    "repeat_question_cooldown_hours": 24,
+    "min_seconds_per_question": 1.2,
+    "max_quizzes_per_day_verified": 40
+  },
+  "quiz_rounds": 8
+}

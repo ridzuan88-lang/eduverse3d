@@ -1,5 +1,4 @@
 # Bina APK
-Workflow `android-build.yml` (manual) menggunakan imej `barichello/godot-ci:4.3`, menjalankan `tools/ci_prepare.sh` (templates, SDK, keystore debug), import, `--export-debug "Android"`, dan memuat naik `eduverse3d.apk` serta `export.log`.
-Jika gagal: buka log langkah "Prepare Godot + Android" - ralat dicetak dengan jelas (SDK/JDK/templates tiada).
-Release bertandatangan: tambah secrets `KEYSTORE_BASE64`, `KEYSTORE_ALIAS`, `KEYSTORE_PASSWORD`, jalankan **Android Release**.
-Ujian tempatan: Godot 4.3, buka folder, F5 (WASD, Shift lari, Space lompat, Q/E kamera).
+GitHub Actions -> **Android Build** (manual). Aliran: ujian pelayan -> semak config selari -> pasang Godot 4.3 + export templates (gagal jelas jika tiada) -> import projek (gagal jika ada ralat skrip) -> ujian asap -> eksport APK debug (gagal jika APK tiada/terlalu kecil) -> muat naik artifact `eduverse3d-apk` (+ `export.log`, `import.log`, `smoke.log`).
+Tempatan: pasang Godot 4.3 + export templates + Android SDK, `godot --headless --import`, eksport pratetap "Android".
+APK ialah debug (ditandatangani kunci debug); untuk Play Store perlu kunci keluaran sendiri.

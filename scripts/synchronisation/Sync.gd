@@ -1,5 +1,5 @@
 extends Node
-# Baris gilir setempat -> pelayan (POST /sync). Pelayan mengesahkan token, menolak pendua dan skor mustahil.
+# Baris gilir setempat -> pelayan (POST /sync). Hanya keputusan DALAM TALIAN. Pelayan mengira semula XP/syiling, menolak pendua dan skor mustahil.
 
 var busy := false
 
@@ -37,6 +37,9 @@ func _done(res: int, code: int, _h: PackedStringArray, body: PackedByteArray, r:
     var j = JSON.parse_string(body.get_string_from_utf8())
     if not (j is Dictionary):
         return
+    if j.has("totals") and j.totals is Dictionary:
+        Game.d.ver_xp = int(j.totals.get("xp", 0))
+        Game.d.ver_coins = int(j.totals.get("coins", 0))
     var done: Array = []
     for k in ["accepted", "duplicate", "rejected"]:
         done.append_array(j.get(k, []))

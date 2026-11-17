@@ -1,0 +1,20 @@
+{
+  "_note": "Senarai asas BM + EN. Tambah mengikut keperluan; kekalkan fail ini sama dengan server/config/safety.json (tools/sync_config.sh).",
+  "max_len": 60,
+  "chat_radius": 30,
+  "rate_limit_ms": 1500,
+  "blocked_words": [
+    "babi","sial","bodoh","bangang","puki","pukimak","cibai","lancau","kimak","celaka","anjing","keparat","pantat","pelacur","bajingan","haram jadah","setan",
+    "fuck","shit","bitch","asshole","bastard","dick","pussy","cunt","slut","whore","nigger","retard","stupid","idiot","dumb","loser","ugly","fat"
+  ],
+  "threat_phrases": [
+    "bunuh kau","bunuh awak","aku bunuh","nak bunuh","mampus","kill you","kill yourself","i will kill","i'll kill","die in a","go die","bomb"
+  ],
+  "personal_info_cues": [
+    "no telefon","nombor telefon","phone number","my number","whatsapp","telegram","instagram","tiktok","facebook","snapchat","discord","alamat rumah","my address","home address","sekolah saya","my school","password","kata laluan"
+  ],
+  "quick_phrases": [
+    "Hai!","Hello!","Terima kasih!","Thank you!","Bagus!","Great job!","Jom main!","Let's play!",
+    "Boleh tolong?","Can you help?","Maaf!","Sorry!","Hore!","Selamat tinggal!","Bye!","Jom belajar!"
+  ]
+}

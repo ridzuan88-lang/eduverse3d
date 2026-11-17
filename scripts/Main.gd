@@ -164,6 +164,28 @@ func _save_profile(nm: LineEdit, yr: OptionButton, st: Label) -> void:
     if rx.search(nm.text) == null:
         st.text = "Nama samaran: 3-16 aksara, hanya huruf, nombor dan _."
         return
+    var sc := Safety.check(nm.text)
+    if not sc.ok or nm.text.length() - nm.text.replace("0", "").replace("1", "").replace("2", "").replace("3", "").replace("4", "").replace("5", "").replace("6", "").replace("7", "").replace("8", "").replace("9", "").length() >= 5:
+        st.text = "Nama samaran tidak sesuai. Pilih nama lain (jangan guna nombor telefon atau perkataan kasar)."
+        return
+    if Game.online_mode and Api.can_go_online():
+        # Dalam talian: pelayan menempah nama samaran (unik + ditapis)
+        st.text = "Menempah nama..."
+        Api.post_json("/profile", {"name": nm.text, "year": yr.selected + 1}, func(ok: bool, d: Dictionary, code: int):
+            if not is_instance_valid(st):
+                return
+            if ok:
+                Game.d.name = nm.text
+                Game.d.year = yr.selected + 1
+                Game.save()
+                _start_world(true)
+            elif code == 409:
+                st.text = "Nama samaran itu sudah digunakan. Cuba nama lain."
+            elif code == 400:
+                st.text = "Nama samaran tidak diterima. Cuba nama lain."
+            else:
+                st.text = "Tidak dapat menghubungi pelayan. Cuba lagi.")
+        return
     Game.d.name = nm.text
     Game.d.year = yr.selected + 1
     Game.save()

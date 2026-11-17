@@ -15,10 +15,17 @@ func _ready() -> void:
 func fresh() -> Dictionary:
     return {
         "name": "", "year": 1,
-        "avatar": {"gender": 0, "skin": 0, "shirt": 0, "hair": 0, "hat": 0, "pack": 0, "pet": 0},
-        "owned": ["hat0", "pack0", "pet0"],
-        "xp": 0, "coins": 20, "wins": 0, "last_login": "",
+        "avatar": {"gender": 0, "skin": 0, "shirt": 0, "hair": 0, "hat": 0, "pack": 0, "pet": 0, "face": 0, "style": 0, "shoes": 0, "acc": 0},
+        "owned": ["hat0", "pack0", "pet0", "acc0"],
+        # xp/coins = dompet setempat (dipaparkan & dibelanjakan). off_xp = bahagian diperoleh LUAR TALIAN (tidak disahkan, TIDAK masuk kedudukan).
+        # ver_xp/ver_coins = jumlah yang disahkan pelayan (satu-satunya yang dipakai papan pendahulu).
+        "xp": 0, "coins": 20, "wins": 0, "last_login": "", "off_xp": 0, "off_quizzes": 0, "ver_xp": 0, "ver_coins": 0,
         "daily": {"date": "", "correct": 0, "claimed": false, "chest": false},
+        "weekly": {"k": -1, "correct": 0, "claimed": false},
+        "eco": {"date": "", "quiz": 0, "pickup": 0, "mini": 0},
+        "seen": {}, "txlog": [], "blocked": [], "chat_text": false, "chat_scope": "n",
+        "house": {"items": [], "privacy": "private"}, "cache_ann": [],
+        "mg": {"target_best": 0, "race_best": {}},
         "queue": [], "refresh_token": "", "uid": "", "volume": 0.8,
     }
 
@@ -51,17 +58,41 @@ func daily() -> Dictionary:
 func new_id() -> String:
     return Crypto.new().generate_random_bytes(8).hex_encode()
 
-func add_result(subject: String, year: int, correct: int, total: int, xp: int, coins: int, won: bool) -> void:
-    d.xp = int(d.xp) + xp
-    d.coins = int(d.coins) + coins
+func is_verified_session() -> bool:
+    return online_mode and str(d.uid) != "" and Auth.id_token != ""
+
+# results: [{id, diff, right, secs}]; rw = Economy.quiz_rewards(...)
+func add_result(subject: String, year: int, results: Array, won: bool, rw: Dictionary) -> void:
+    d.xp = int(d.xp) + int(rw.xp)
+    d.coins = int(d.coins) + int(rw.coins)
     if won:
         d.wins = int(d.wins) + 1
     var dl := daily()
-    dl.correct = int(dl.correct) + correct
-    d.queue.append({"id": new_id(), "owner": d.uid, "subject": subject, "year": year,
-        "correct": correct, "total": total, "xp": xp, "ts": int(Time.get_unix_time_from_system())})
+    dl.correct = int(dl.correct) + int(rw.correct)
+    Economy.weekly().correct = int(Economy.weekly().correct) + int(rw.correct)
+    Economy.log_tx("quiz", int(rw.coins), subject)
+    if is_verified_session():
+        # Hanya keputusan DALAM TALIAN dihantar ke pelayan (yang mengira semula ganjaran).
+        d.queue.append({"id": new_id(), "owner": d.uid, "subject": subject, "year": year, "total": results.size(),
+            "c": rw.c, "t": snappedf(float(rw.secs), 0.1), "win": won})
+    else:
+        # Keputusan luar talian: disimpan berasingan, tidak dihantar, tidak masuk kedudukan sah.
+        d.off_xp = int(d.off_xp) + int(rw.xp)
+        d.off_quizzes = int(d.off_quizzes) + 1
     save()
     Sync.sync_now()
+
+func add_coins(n: int, kind: String, note := "") -> void:
+    d.coins = int(d.coins) + n
+    if n != 0:
+        Economy.log_tx(kind, n, note)
+
+func spend(n: int, note: String) -> bool:
+    if int(d.coins) < n:
+        return false
+    d.coins = int(d.coins) - n
+    Economy.log_tx("spend", -n, note)
+    return true
 
 func set_volume(v: float) -> void:
     volume = clampf(v, 0.0, 1.0)
